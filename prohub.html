@@ -1,0 +1,2879 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dieguinni's Projects</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236C63FF'/><text y='.9em' font-size='70' x='12'>🗂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f6f3;
+  --surface:#ffffff;
+  --surface2:#f0eff9;
+  --surface3:#e8e7f2;
+  --border:rgba(100,90,200,.08);
+  --border2:rgba(100,90,200,.16);
+  --text:#18172b;
+  --text2:#5c5a7a;
+  --text3:#a09dbe;
+  --accent:#6C63FF;
+  --accent-light:#eeeeff;
+  --accent-dark:#4a43cc;
+  --accent-glow:rgba(108,99,255,.18);
+  --purple:#9B5CF6;
+  --purple-light:#f3eeff;
+  --purple-text:#6D28D9;
+  --amber:#F59E0B;
+  --amber-light:#fffbeb;
+  --amber-dark:#92400E;
+  --blue:#3B82F6;
+  --blue-light:#eff6ff;
+  --blue-dark:#1D4ED8;
+  --red:#EF4444;
+  --red-light:#fef2f2;
+  --red-dark:#991B1B;
+  --green:#10B981;
+  --green-light:#ecfdf5;
+  --green-dark:#065F46;
+  --teal:#14B8A6;
+  --teal-light:#f0fdfa;
+  --radius:12px;
+  --radius-lg:18px;
+  --radius-xl:24px;
+  --shadow-sm:0 1px 3px rgba(60,50,180,.06),0 1px 2px rgba(60,50,180,.04);
+  --shadow:0 4px 16px rgba(60,50,180,.08),0 1px 4px rgba(60,50,180,.04);
+  --shadow-lg:0 12px 40px rgba(60,50,180,.12),0 4px 12px rgba(60,50,180,.06);
+}
+[data-theme="dark"]{
+  --bg:#0f0e1a;
+  --surface:#19182d;
+  --surface2:#221f38;
+  --surface3:#2d2a48;
+  --border:rgba(140,130,255,.1);
+  --border2:rgba(140,130,255,.18);
+  --text:#e8e6ff;
+  --text2:#9d9bc0;
+  --text3:#5e5c80;
+  --accent:#7C73FF;
+  --accent-light:#1e1a3a;
+  --accent-dark:#a89fff;
+  --accent-glow:rgba(124,115,255,.2);
+  --purple:#A78BFA;
+  --purple-light:#1e1535;
+  --purple-text:#C4B5FD;
+  --amber:#FCD34D;
+  --amber-light:#1c1500;
+  --amber-dark:#FDE68A;
+  --blue:#60A5FA;
+  --blue-light:#0c1528;
+  --blue-dark:#93C5FD;
+  --red:#F87171;
+  --red-light:#1c0a0a;
+  --red-dark:#FCA5A5;
+  --green:#34D399;
+  --green-light:#061a12;
+  --green-dark:#6EE7B7;
+  --teal:#2DD4BF;
+  --teal-light:#061918;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.3);
+  --shadow:0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.4);
+}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
+
+/* LAYOUT */
+.shell{display:flex;min-height:100vh}
+.sidebar{width:240px;min-height:100vh;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:1.5rem 1rem 1rem;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;transition:background .3s}
+.logo{padding:0 8px;margin-bottom:2rem}
+.logo-mark{display:flex;align-items:center;gap:10px}
+.logo-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px var(--accent-glow)}
+.logo-text{font-family:'Fraunces',serif;font-size:17px;font-weight:300;color:var(--text);line-height:1.2}
+.logo-text span{color:var(--accent)}
+.logo-sub{font-size:10px;color:var(--text3);letter-spacing:.04em;margin-top:1px}
+
+.nav-section{margin-bottom:1.5rem}
+.nav-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);padding:0 10px;margin-bottom:6px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--radius);font-size:13px;font-weight:400;color:var(--text2);cursor:pointer;transition:all .18s;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;position:relative}
+.nav-item:hover{background:var(--accent-light);color:var(--accent)}
+.nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:500}
+.nav-item.active::before{content:'';position:absolute;left:-1rem;top:50%;transform:translateY(-50%);width:3px;height:60%;background:var(--accent);border-radius:0 3px 3px 0}
+.nav-item i{font-size:17px;opacity:.8}
+.nav-item.active i{opacity:1}
+.nav-count{margin-left:auto;font-size:11px;background:var(--accent-glow);color:var(--accent);padding:2px 7px;border-radius:99px;font-weight:500}
+.sidebar-footer{margin-top:auto;padding-top:1rem;border-top:1px solid var(--border)}
+
+/* TOPBAR */
+.main{margin-left:240px;flex:1;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);transition:background .3s}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.topbar-title{font-size:15px;font-weight:500;color:var(--text)}
+.topbar-actions{display:flex;gap:8px;align-items:center}
+
+/* BUTTONS */
+.view-switcher{display:flex;background:var(--surface2);border-radius:var(--radius);padding:3px;gap:2px}
+.vs-btn{background:none;border:none;padding:5px 9px;cursor:pointer;color:var(--text3);font-size:15px;border-radius:8px;transition:all .18s}
+.vs-btn.active{background:var(--surface);color:var(--accent);box-shadow:var(--shadow-sm)}
+.vs-btn:hover:not(.active){color:var(--text2)}
+
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;border:none;border-radius:var(--radius);padding:8px 16px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-weight:500;transition:all .2s;box-shadow:0 4px 14px var(--accent-glow);letter-spacing:.01em}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px var(--accent-glow)}
+.btn-primary:active{transform:translateY(0)}
+
+.btn-ghost{background:none;color:var(--text2);border:1px solid var(--border2);border-radius:var(--radius);padding:7px 13px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;transition:all .18s}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent);background:var(--accent-light)}
+
+.theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:7px 10px;cursor:pointer;color:var(--text2);font-size:16px;display:flex;align-items:center;transition:all .18s}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+
+.icon-btn{background:none;border:none;cursor:pointer;padding:5px 6px;color:var(--text3);font-size:16px;border-radius:8px;transition:all .15s;line-height:1}
+.icon-btn:hover{color:var(--text);background:var(--surface2)}
+.icon-btn.red:hover{color:var(--red);background:var(--red-light)}
+
+.content{padding:2rem;flex:1}
+
+/* TOPBAR SEARCH */
+.topbar-search-wrap{position:relative;display:flex;align-items:center}
+.topbar-search-box{display:none;align-items:center;position:relative;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:6px 10px 6px 38px;animation:searchExpand .18s ease}
+.topbar-search-box.open{display:flex}
+@keyframes searchExpand{from{opacity:0;transform:scaleX(.92);transform-origin:right}to{opacity:1;transform:scaleX(1)}}
+.topbar-search-input{background:none;border:none;outline:none;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;width:240px}
+.topbar-search-input::placeholder{color:var(--text3)}
+.search-results{position:absolute;top:calc(100% + 8px);right:0;width:380px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;display:none;box-shadow:var(--shadow-lg);z-index:100}
+.search-results.open{display:block;animation:popIn .15s ease}
+.sr-item{padding:10px 16px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .12s;display:flex;align-items:center;gap:10px}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:var(--accent-light)}
+.sr-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);min-width:70px}
+.sr-name{font-size:13px;color:var(--text);flex:1}
+.sr-proj{font-size:11px;color:var(--text3)}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;align-items:center}
+.filter-input,.filter-select{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 14px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;transition:all .18s;box-shadow:var(--shadow-sm)}
+.filter-input{flex:1;min-width:160px}
+.filter-input::placeholder{color:var(--text3)}
+.filter-input:focus,.filter-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.filter-select{cursor:pointer}
+.tag-chip{font-size:11px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.tag-chip.active,.tag-chip:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.75rem}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:all .2s}
+.stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.stat-card:nth-child(1)::before{background:linear-gradient(90deg,var(--accent),var(--purple))}
+.stat-card:nth-child(2)::before{background:linear-gradient(90deg,var(--green),var(--teal))}
+.stat-card:nth-child(3)::before{background:linear-gradient(90deg,var(--purple),var(--accent))}
+.stat-card:nth-child(4)::before{background:linear-gradient(90deg,var(--amber),var(--red))}
+.stat-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.stat-value{font-size:28px;font-weight:600;color:var(--text);line-height:1}
+.stat-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:28px;opacity:.08}
+
+/* PROJECT GRID */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.4rem;cursor:pointer;transition:all .22s;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.project-card::after{content:'';position:absolute;inset:0;border-radius:var(--radius-xl);opacity:0;background:linear-gradient(135deg,var(--accent-glow),transparent);transition:opacity .22s;pointer-events:none}
+.project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.project-card:hover::after{opacity:1}
+
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.card-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;letter-spacing:-.01em}
+.card-menu{display:flex;gap:2px;opacity:0;transition:opacity .15s}
+.project-card:hover .card-menu{opacity:1}
+
+.card-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.badge{font-size:11px;font-weight:500;padding:3px 9px;border-radius:99px;letter-spacing:.01em}
+.badge-personal{background:var(--green-light);color:var(--green-dark)}
+.badge-negocio{background:var(--blue-light);color:var(--blue-dark)}
+.badge-activo{background:var(--green-light);color:var(--green-dark)}
+.badge-pausa{background:var(--amber-light);color:var(--amber-dark)}
+.badge-completado{background:var(--teal-light);color:var(--teal)}
+.badge-idea{background:var(--purple-light);color:var(--purple-text)}
+.badge-alta{background:var(--red-light);color:var(--red-dark)}
+.badge-media{background:var(--amber-light);color:var(--amber-dark)}
+.badge-baja{background:var(--green-light);color:var(--green-dark)}
+.custom-tag-badge{font-size:11px;font-weight:500;padding:3px 9px;border-radius:99px;background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+
+.card-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;flex:1}
+.progress-wrap{margin-bottom:12px}
+.progress-meta{display:flex;justify-content:space-between;font-size:11px;font-weight:500;color:var(--text3);margin-bottom:5px}
+.progress-bar{height:4px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:99px;transition:width .5s ease}
+.card-bottom{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3)}
+.collabs{display:flex}
+.avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#fff;margin-left:-7px}
+.avatar:first-child{margin-left:0}
+
+/* KANBAN */
+.kanban-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
+.kanban-col{background:var(--surface2);border-radius:var(--radius-lg);padding:14px}
+.kanban-col-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+.kanban-col-count{font-size:11px;background:var(--surface3);color:var(--text3);padding:2px 8px;border-radius:99px;font-weight:500}
+.kanban-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;cursor:pointer;transition:all .18s;margin-bottom:8px;box-shadow:var(--shadow-sm)}
+.kanban-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.kanban-card-title{font-size:13px;font-weight:500;margin-bottom:5px}
+.kanban-card-meta{font-size:11px;color:var(--text3)}
+
+/* TIMELINE */
+.timeline-wrap{overflow-x:auto;padding-bottom:1rem}
+.timeline-header{display:flex;margin-bottom:8px;margin-left:180px}
+.timeline-month{font-size:11px;font-weight:500;color:var(--text3);flex:none;text-align:center;border-left:1px solid var(--border)}
+.timeline-row{display:flex;align-items:center;margin-bottom:8px;height:40px}
+.timeline-label{width:180px;flex:none;font-size:12px;font-weight:500;color:var(--text2);padding-right:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;transition:color .15s}
+.timeline-label:hover{color:var(--accent)}
+.timeline-track{flex:1;position:relative;height:100%;border-left:1px solid var(--border)}
+.timeline-bar{position:absolute;top:50%;transform:translateY(-50%);height:26px;border-radius:99px;display:flex;align-items:center;padding:0 12px;font-size:11px;font-weight:500;color:#fff;white-space:nowrap;overflow:hidden;cursor:pointer;transition:opacity .15s;box-shadow:var(--shadow-sm)}
+.timeline-bar:hover{opacity:.85}
+
+/* DETAIL */
+.detail-wrap{animation:fadeUp .22s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.detail-head{margin-bottom:8px}
+.detail-title{font-family:'Fraunces',serif;font-size:30px;font-weight:300;color:var(--text);line-height:1.2;letter-spacing:-.02em}
+.detail-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.detail-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:1.5rem}
+
+.detail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem}
+.ds-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;box-shadow:var(--shadow-sm)}
+.ds-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.ds-value{font-size:14px;font-weight:500;color:var(--text)}
+
+/* TABS */
+.detail-tabs{display:flex;gap:2px;margin-bottom:1.75rem;background:var(--surface2);padding:4px;border-radius:var(--radius-lg);width:fit-content}
+.detail-tab{background:none;border:none;border-radius:var(--radius);padding:7px 14px;font-size:13px;font-weight:400;color:var(--text2);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .18s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.detail-tab i{font-size:15px}
+.detail-tab.active{background:var(--surface);color:var(--accent);font-weight:500;box-shadow:var(--shadow-sm)}
+.detail-tab:hover:not(.active){color:var(--text)}
+
+.sec-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.sec-title{font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
+.sec-count{font-size:11px;background:var(--accent-light);color:var(--accent);padding:2px 8px;border-radius:99px;font-weight:600}
+
+/* PHASES */
+.phases-list{display:flex;flex-direction:column;gap:10px}
+.phase-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px;display:flex;align-items:flex-start;gap:14px;box-shadow:var(--shadow-sm);transition:all .18s}
+.phase-item:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.phase-num{font-size:12px;font-weight:600;color:var(--text3);min-width:22px;margin-top:2px;background:var(--surface2);width:24px;height:24px;border-radius:99px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-body{flex:1}
+.phase-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px;letter-spacing:-.01em}
+.phase-desc-text{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:4px}
+.phase-dates{font-size:11px;color:var(--text3);font-weight:500}
+.phase-comments{margin-top:10px}
+.phase-comment{font-size:12px;color:var(--text2);background:var(--surface2);border-radius:8px;padding:6px 10px;margin-bottom:4px;line-height:1.5;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.phase-comment-author{font-weight:600;color:var(--text);margin-right:5px}
+.add-comment-wrap{display:flex;gap:6px;margin-top:8px}
+.add-comment-input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;transition:border-color .15s}
+.add-comment-input:focus{border-color:var(--accent)}
+.add-comment-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:500;transition:opacity .15s}
+.add-comment-btn:hover{opacity:.85}
+.phase-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+
+/* PHASE STATUS DROPDOWN */
+.phase-status-dropdown{position:relative;display:inline-block}
+.phase-status-pill{font-size:11px;font-weight:500;border-radius:99px;padding:5px 11px 5px 9px;cursor:pointer;font-family:'Outfit',sans-serif;border:none;outline:none;transition:all .2s;display:flex;align-items:center;gap:5px;user-select:none;white-space:nowrap}
+.phase-status-pill i{font-size:11px;transition:transform .2s}
+.phase-status-pill.open i.ti-chevron-down{transform:rotate(180deg)}
+.phase-status-pill.pending{background:var(--surface2);color:var(--text2)}
+.phase-status-pill.pending:hover{background:var(--surface3)}
+.phase-status-pill.active{background:var(--blue-light);color:var(--blue-dark)}
+.phase-status-pill.completed{background:var(--green-light);color:var(--green-dark)}
+.phase-status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.phase-status-pill.pending .phase-status-dot{background:var(--text3)}
+.phase-status-pill.active .phase-status-dot{background:var(--blue)}
+.phase-status-pill.completed .phase-status-dot{background:var(--green)}
+.status-popup{position:absolute;top:calc(100% + 6px);left:0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:5px;z-index:50;min-width:155px;box-shadow:var(--shadow-lg);display:none}
+.status-popup.open{display:block;animation:popIn .15s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(-6px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.status-option{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:9px;cursor:pointer;font-size:12px;font-weight:500;color:var(--text2);transition:background .12s;font-family:'Outfit',sans-serif}
+.status-option:hover{background:var(--accent-light);color:var(--accent)}
+.status-option.selected{color:var(--text);background:var(--surface2)}
+.status-option-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.so-pending .status-option-dot{background:var(--text3)}
+.so-active .status-option-dot{background:var(--blue)}
+.so-completed .status-option-dot{background:var(--green)}
+
+/* IDEAS */
+.ideas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.idea-card{background:linear-gradient(135deg,var(--purple-light),var(--accent-light));border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;position:relative;transition:all .18s;box-shadow:var(--shadow-sm)}
+.idea-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.idea-text{font-size:13px;color:var(--purple-text);line-height:1.6;padding-right:22px;font-weight:400}
+.idea-del{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:var(--purple);opacity:.35;font-size:14px;transition:opacity .15s;padding:2px;border-radius:4px}
+.idea-del:hover{opacity:1;background:var(--red-light);color:var(--red)}
+
+/* NOTES */
+.notes-area{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px;font-size:14px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;min-height:160px;resize:vertical;line-height:1.7;transition:all .2s;box-shadow:var(--shadow-sm)}
+.notes-area:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.notes-saved{font-size:11px;font-weight:500;color:var(--green);margin-top:6px;opacity:0;transition:opacity .3s}
+.notes-saved.show{opacity:1}
+
+/* RESOURCES & TOOLS */
+.resources-list,.tools-list{display:flex;flex-direction:column;gap:8px}
+.resource-item,.tool-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-sm);transition:all .18s}
+.resource-item:hover,.tool-item:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.resource-icon{font-size:18px;color:var(--accent);background:var(--accent-light);width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.resource-name,.tool-name{font-size:13px;font-weight:500;flex:1;color:var(--text)}
+.resource-link,.tool-link{font-size:12px;font-weight:500;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:8px;background:var(--accent-light);transition:all .15s}
+.resource-link:hover,.tool-link:hover{background:var(--accent);color:#fff}
+.tool-phase-tag{font-size:11px;font-weight:500;color:var(--text3);background:var(--surface2);padding:3px 10px;border-radius:99px}
+.project-link-tag{font-size:11px;font-weight:500;color:var(--accent);cursor:pointer;background:var(--accent-light);padding:3px 10px;border-radius:99px;transition:all .15s}
+.project-link-tag:hover{background:var(--accent);color:#fff}
+
+/* EXPORT BTN */
+.export-btn{background:none;border:1px solid var(--border2);border-radius:var(--radius);padding:6px 12px;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;display:flex;align-items:center;gap:5px;font-family:'Outfit',sans-serif;transition:all .15s}
+.export-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-light)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,8,30,.45);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(6px)}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;width:530px;max-width:95vw;max-height:90vh;overflow-y:auto;animation:fadeUp .2s ease;box-shadow:var(--shadow-lg)}
+.modal-title{font-size:17px;font-weight:600;margin-bottom:1.5rem;color:var(--text);letter-spacing:-.01em}
+.form-group{margin-bottom:1.1rem}
+.form-label{font-size:12px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.form-input,.form-textarea,.form-select{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);padding:9px 13px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;transition:all .18s}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.form-textarea{min-height:90px;resize:vertical;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border)}
+
+/* SHARE */
+.share-box{background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:12px 16px;display:flex;align-items:center;gap:10px;margin-top:8px}
+.share-url{font-size:12px;color:var(--text2);flex:1;word-break:break-all}
+
+/* NOTIF */
+.notif{position:fixed;bottom:24px;right:24px;background:var(--text);color:var(--bg);border-radius:var(--radius-lg);padding:11px 20px;font-size:13px;font-weight:500;z-index:999;animation:slideUp .22s ease;box-shadow:var(--shadow-lg)}
+@keyframes slideUp{from{transform:translateY(12px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* EMPTY */
+.empty{text-align:center;padding:5rem 1rem;color:var(--text3);grid-column:1/-1}
+.empty i{font-size:52px;display:block;margin-bottom:16px;opacity:.4}
+.empty p{font-size:14px}
+
+/* BRIEF TAB */
+.brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.brief-field{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:10px;transition:all .18s;box-shadow:var(--shadow-sm)}
+.brief-field:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.brief-field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.brief-field.full{grid-column:1/-1}
+.brief-field-header{display:flex;align-items:center;gap:10px}
+.brief-field-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+.brief-field-label{font-size:13px;font-weight:600;color:var(--text)}
+.brief-field-hint{font-size:11px;color:var(--text3);margin-top:1px}
+.brief-textarea{width:100%;background:transparent;border:none;outline:none;resize:vertical;line-height:1.65;min-height:80px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif}
+.brief-textarea::placeholder{color:var(--text3)}
+.brief-saved{font-size:11px;font-weight:500;color:var(--green);text-align:right;min-height:16px;opacity:0;transition:opacity .3s}
+.brief-saved.show{opacity:1}
+
+/* PHASE DOC */
+.phase-doc-wrap{animation:fadeUp .22s ease;max-width:800px;margin:0 auto}
+.phase-doc-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;gap:12px}
+.phase-doc-breadcrumb{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--text3)}
+.phase-doc-breadcrumb span{cursor:pointer;transition:color .15s;font-weight:400}
+.phase-doc-breadcrumb span:hover{color:var(--accent)}
+.phase-doc-breadcrumb i{font-size:12px}
+.phase-doc-meta{display:flex;gap:8px;align-items:center;margin-bottom:1.75rem;flex-wrap:wrap}
+.phase-doc-status{font-size:12px;font-weight:500;padding:5px 12px;border-radius:99px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.phase-doc-status:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.phase-doc-status.completed{background:var(--green-light);color:var(--green-dark);border-color:transparent}
+.phase-doc-status.active{background:var(--blue-light);color:var(--blue-dark);border-color:transparent}
+.doc-saved{font-size:11px;font-weight:500;color:var(--green);opacity:0;transition:opacity .3s}
+.doc-saved.show{opacity:1}
+
+/* EDITOR */
+.editor-toolbar{display:flex;align-items:center;gap:2px;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:10px;flex-wrap:wrap;position:sticky;top:57px;z-index:5;box-shadow:var(--shadow-sm)}
+.tb-btn{background:none;border:none;cursor:pointer;padding:5px 8px;border-radius:8px;color:var(--text2);font-size:15px;transition:all .15s;font-family:'Outfit',sans-serif;line-height:1;display:flex;align-items:center}
+.tb-btn:hover{background:var(--accent-light);color:var(--accent)}
+.tb-sep{width:1px;height:18px;background:var(--border2);margin:0 5px}
+.tb-select{background:none;border:none;color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;padding:4px 8px;border-radius:8px;outline:none}
+.tb-select:hover{background:var(--accent-light);color:var(--accent)}
+.editor-area{min-height:520px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.25rem 3rem;outline:none;font-size:15px;line-height:1.8;color:var(--text);font-family:'Outfit',sans-serif;box-shadow:var(--shadow-sm);transition:border-color .2s}
+.editor-area:focus{border-color:var(--accent)}
+.editor-area h1{font-family:'Fraunces',serif;font-size:28px;font-weight:300;margin:1.5rem 0 .6rem;color:var(--text);line-height:1.2}
+.editor-area h2{font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin:1.25rem 0 .5rem;color:var(--text)}
+.editor-area h3{font-size:16px;font-weight:600;margin:1rem 0 .4rem;color:var(--text)}
+.editor-area p{margin-bottom:.8rem}
+.editor-area ul,.editor-area ol{margin:.5rem 0 .8rem 1.75rem}
+.editor-area li{margin-bottom:.3rem}
+.editor-area blockquote{border-left:3px solid var(--accent);margin:.9rem 0;padding:.6rem 1.25rem;color:var(--text2);font-style:italic;background:var(--accent-light);border-radius:0 10px 10px 0}
+.editor-area a{color:var(--accent);text-decoration:underline}
+.editor-area code{background:var(--surface2);padding:2px 7px;border-radius:6px;font-family:monospace;font-size:13px;color:var(--purple)}
+.editor-area hr{border:none;border-top:1px solid var(--border2);margin:1.75rem 0}
+.editor-area[data-placeholder]:empty:before{content:attr(data-placeholder);color:var(--text3);pointer-events:none}
+
+/* INICIO DASHBOARD */
+.inicio-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.inicio-wide{grid-column:1/-1}
+.inicio-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)}
+.inicio-card-title{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+.inicio-card-title span{display:flex;align-items:center;gap:6px}
+.hoy-greeting{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--text);margin-bottom:4px}
+.hoy-date{font-size:13px;color:var(--text3)}
+.hoy-stats{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hoy-stat{display:flex;flex-direction:column;gap:2px;background:var(--surface2);border-radius:var(--radius);padding:8px 14px}
+.hoy-stat-num{font-size:20px;font-weight:600;color:var(--text)}
+.hoy-stat-label{font-size:11px;color:var(--text3)}
+.quick-project{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all .15s}
+.quick-project:last-child{border-bottom:none}
+.quick-project:hover .quick-project-name{color:var(--accent)}
+.quick-project-bar{width:3px;height:32px;border-radius:99px;flex-shrink:0}
+.quick-project-name{font-size:13px;font-weight:500;flex:1}
+.quick-project-pct{font-size:11px;color:var(--text3)}
+.mini-progress{height:3px;background:var(--surface2);border-radius:99px;overflow:hidden;width:60px}
+.mini-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:99px}
+.idea-recent{font-size:12px;color:var(--text2);padding:6px 10px;background:var(--purple-light);border-radius:8px;margin-bottom:5px;line-height:1.4}
+.idea-recent:last-child{margin-bottom:0}
+.acceso-rapido{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ar-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;background:var(--surface2);border-radius:var(--radius-lg);border:1px solid var(--border);cursor:pointer;transition:all .18s;text-decoration:none;font-family:'Outfit',sans-serif}
+.ar-btn:hover{background:var(--accent-light);border-color:var(--accent);transform:translateY(-2px)}
+.ar-btn i{font-size:20px;color:var(--accent)}
+.ar-btn span{font-size:11px;font-weight:500;color:var(--text2)}
+/* TAREAS */
+.task-list{display:flex;flex-direction:column;gap:6px}
+.task-item{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all .15s}
+.task-item:hover{border-color:var(--border2)}
+.task-item.done{opacity:.5}
+.task-check{width:18px;height:18px;border-radius:5px;border:2px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:none}
+.task-check:hover{border-color:var(--accent)}
+.task-check.checked{background:var(--accent);border-color:var(--accent)}
+.task-check.checked::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.task-text{font-size:13px;flex:1;color:var(--text)}
+.task-item.done .task-text{text-decoration:line-through;color:var(--text3)}
+.task-phase-tag{font-size:10px;font-weight:500;color:var(--text3);background:var(--surface2);padding:2px 7px;border-radius:99px}
+.task-add-wrap{display:flex;gap:8px;margin-top:8px}
+.task-add-input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;transition:border-color .15s}
+.task-add-input:focus{border-color:var(--accent)}
+/* FOCUS MODE */
+.focus-overlay{position:fixed;inset:0;background:var(--bg);z-index:300;display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.focus-topbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid var(--border);background:var(--surface)}
+.focus-title{font-family:'Fraunces',serif;font-size:20px;font-weight:300}
+.focus-content{flex:1;overflow-y:auto;padding:2rem;max-width:700px;margin:0 auto;width:100%}
+/* DIARIO */
+.diario-layout{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start}
+.diario-sidebar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sm);position:sticky;top:80px}
+.diario-entry-item{padding:8px 10px;border-radius:var(--radius);cursor:pointer;transition:all .15s;border-left:3px solid transparent}
+.diario-entry-item:hover{background:var(--surface2)}
+.diario-entry-item.active{background:var(--accent-light);border-left-color:var(--accent)}
+.diario-entry-date{font-size:12px;font-weight:600;color:var(--text)}
+.diario-entry-preview{font-size:11px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.diario-editor{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem 3rem;min-height:500px;box-shadow:var(--shadow-sm)}
+.diario-entry-title{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--text);margin-bottom:1.5rem;border:none;outline:none;width:100%;background:none}
+.diario-textarea{width:100%;background:none;border:none;outline:none;font-size:14px;line-height:1.8;color:var(--text);font-family:'Outfit',sans-serif;resize:none;min-height:400px}
+.diario-textarea::placeholder{color:var(--text3)}
+/* METAS */
+.metas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.4rem;box-shadow:var(--shadow-sm);transition:all .2s}
+.meta-card:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.meta-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.meta-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.meta-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.3}
+.meta-desc{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:10px}
+.meta-period{font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px}
+.meta-period-trimestral{background:var(--blue-light);color:var(--blue-dark)}
+.meta-period-anual{background:var(--purple-light);color:var(--purple-text)}
+.meta-period-mensual{background:var(--green-light);color:var(--green-dark)}
+.meta-progress-wrap{margin:10px 0}
+.meta-progress-bar{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.meta-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:99px;transition:width .4s}
+.meta-progress-label{font-size:11px;color:var(--text3);margin-top:4px;display:flex;justify-content:space-between}
+.meta-linked{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.meta-linked-tag{font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;background:var(--accent-light);color:var(--accent);cursor:pointer;transition:all .15s}
+.meta-linked-tag:hover{background:var(--accent);color:#fff}
+/* PLANTILLAS */
+.plantilla-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;cursor:pointer;transition:all .18s;box-shadow:var(--shadow-sm)}
+.plantilla-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+/* BIBLIOTECA */
+.bib-layout{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+.bib-sidebar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sm);position:sticky;top:80px}
+.bib-cat-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--radius);font-size:13px;color:var(--text2);cursor:pointer;transition:all .15s;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif}
+.bib-cat-item:hover{background:var(--surface2);color:var(--text)}
+.bib-cat-item.active{background:var(--accent-light);color:var(--accent);font-weight:500}
+.bib-cat-count{margin-left:auto;font-size:11px;font-weight:500;background:var(--surface2);color:var(--text3);padding:1px 7px;border-radius:99px}
+.bib-cat-item.active .bib-cat-count{background:var(--accent-glow);color:var(--accent)}
+.bib-sep{height:1px;background:var(--border);margin:8px 0}
+.bib-collection-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--radius);font-size:12px;color:var(--text2);cursor:pointer;transition:all .15s;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif}
+.bib-collection-item:hover{background:var(--surface2);color:var(--text)}
+.bib-collection-item.active{color:var(--accent);font-weight:500}
+.bib-main{}
+.bib-topbar{display:flex;gap:8px;margin-bottom:1.25rem;align-items:center;flex-wrap:wrap}
+.bib-search{flex:1;min-width:180px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:9px 14px 9px 38px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;transition:all .2s;box-shadow:var(--shadow-sm);position:relative}
+.bib-search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.bib-search-wrap{position:relative;flex:1}
+.bib-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;pointer-events:none}
+.bib-filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center}
+.bib-filter-chip{font-size:11px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.bib-filter-chip.active,.bib-filter-chip:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+.bib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.bib-list{display:flex;flex-direction:column;gap:8px}
+
+/* BIB CARDS */
+.bib-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm);position:relative;display:flex;flex-direction:column;gap:8px}
+.bib-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow)}
+.bib-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.bib-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.bib-card-title{font-size:14px;font-weight:600;color:var(--text);flex:1;line-height:1.3}
+.bib-card-actions{display:flex;gap:3px;opacity:0;transition:opacity .15s;flex-shrink:0}
+.bib-card:hover .bib-card-actions{opacity:1}
+.bib-card-desc{font-size:12px;color:var(--text2);line-height:1.55}
+.bib-card-prompt{font-size:12px;color:var(--text2);line-height:1.6;background:var(--surface2);border-radius:8px;padding:8px 10px;border-left:3px solid var(--accent);font-family:monospace;white-space:pre-wrap;word-break:break-word;max-height:90px;overflow:hidden;position:relative}
+.bib-card-prompt.expanded{max-height:none}
+.bib-card-prompt-fade{position:absolute;bottom:0;left:0;right:0;height:28px;background:linear-gradient(transparent,var(--surface2));border-radius:0 0 8px 8px}
+.bib-card-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bib-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;letter-spacing:.02em}
+.bib-badge-herramienta{background:var(--blue-light);color:var(--blue-dark)}
+.bib-badge-prompt{background:var(--purple-light);color:var(--purple-text)}
+.bib-badge-pagina{background:var(--green-light);color:var(--green-dark)}
+.bib-badge-snippet{background:var(--amber-light);color:var(--amber-dark)}
+.bib-badge-recurso{background:var(--teal-light);color:var(--teal)}
+.bib-badge-inspiracion{background:var(--teal-light);color:var(--teal)}
+.bib-tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:99px;background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
+.bib-card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bib-price{font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px}
+.bib-price-free{background:var(--green-light);color:var(--green-dark)}
+.bib-price-freemium{background:var(--amber-light);color:var(--amber-dark)}
+.bib-price-paid{background:var(--red-light);color:var(--red-dark)}
+.bib-copy-btn{background:var(--accent-light);color:var(--accent);border:none;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Outfit',sans-serif;transition:all .15s;white-space:nowrap}
+.bib-copy-btn:hover{background:var(--accent);color:#fff}
+.bib-copy-btn.copied{background:var(--green-light);color:var(--green-dark)}
+.bib-fav-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:3px;border-radius:6px;transition:all .15s;line-height:1}
+.bib-fav-btn:hover{transform:scale(1.2)}
+.bib-var{background:var(--accent-light);color:var(--accent);border-radius:3px;padding:0 3px;font-weight:600}
+
+/* BIB COLLECTIONS */
+.bib-collections-wrap{margin-bottom:1.5rem}
+.bib-collection-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;border:1px solid var(--border2);background:none;color:var(--text2);font-family:'Outfit',sans-serif}
+.bib-collection-badge.active,.bib-collection-badge:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+
+/* DETAIL PANEL */
+.bib-detail-overlay{position:fixed;inset:0;background:rgba(10,8,30,.35);z-index:150;backdrop-filter:blur(4px);animation:fadeIn .18s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.bib-detail-panel{position:fixed;top:0;right:0;bottom:0;width:480px;max-width:95vw;background:var(--surface);border-left:1px solid var(--border);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;animation:slideInRight .2s ease;z-index:151;overflow:hidden}
+@keyframes slideInRight{from{transform:translateX(30px);opacity:0}to{transform:translateX(0);opacity:1}}
+.bib-detail-head{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border);flex-shrink:0}
+.bib-detail-body{flex:1;overflow-y:auto;padding:1.5rem}
+.bib-detail-footer{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:8px;flex-shrink:0}
+.bib-prompt-full{background:var(--surface2);border-radius:var(--radius);padding:1rem;font-size:13px;font-family:monospace;line-height:1.65;color:var(--text);white-space:pre-wrap;word-break:break-word;border-left:3px solid var(--accent)}
+.bib-model-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;background:var(--purple-light);color:var(--purple-text)}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">
+        <div class="logo-icon">🗂</div>
+        <div>
+          <div class="logo-text">Dieguinni's <span>Projects</span></div>
+          <div class="logo-sub">workspace personal</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Vistas</div>
+      <button class="nav-item" id="nav-inicio" onclick="setView('inicio')"><i class="ti ti-home"></i> Inicio</button>
+      <button class="nav-item" id="nav-dashboard" onclick="setView('dashboard')"><i class="ti ti-layout-grid"></i> Proyectos <span class="nav-count" id="nc-all">0</span></button>
+      <button class="nav-item" id="nav-biblioteca" onclick="setView('biblioteca')"><i class="ti ti-books"></i> Biblioteca <span class="nav-count" id="nc-bib">0</span></button>
+      <button class="nav-item" id="nav-metas" onclick="setView('metas')"><i class="ti ti-target"></i> Metas</button>
+      <button class="nav-item" id="nav-diario" onclick="setView('diario')"><i class="ti ti-notebook"></i> Diario</button>
+      <button class="nav-item" id="nav-plantillas" onclick="setView('plantillas')"><i class="ti ti-template"></i> Plantillas</button>
+      <button class="nav-item" id="nav-tools" onclick="setView('tools-global')"><i class="ti ti-tool"></i> Herramientas <span class="nav-count" id="nc-tools">0</span></button>
+      <button class="nav-item" id="nav-timeline" onclick="setView('timeline')"><i class="ti ti-timeline"></i> Línea de tiempo</button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Filtros rápidos</div>
+      <button class="nav-item" onclick="quickFilter('activo')"><i class="ti ti-player-play"></i> Activos</button>
+      <button class="nav-item" onclick="quickFilter('personal')"><i class="ti ti-user"></i> Personales</button>
+      <button class="nav-item" onclick="quickFilter('negocio')"><i class="ti ti-briefcase"></i> Negocios</button>
+      <button class="nav-item" onclick="quickFilter('alta')"><i class="ti ti-flame"></i> Prioridad alta</button>
+    </div>
+    <div class="sidebar-footer">
+      <div class="nav-label" style="margin-bottom:8px">Base de datos</div>
+      <div id="db-status" style="font-size:11px;padding:7px 10px;display:flex;align-items:center;gap:7px;margin-bottom:6px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border)"></div>
+      <button class="nav-item" id="db-connect-btn" onclick="connectDbFile()" style="color:var(--accent)"><i class="ti ti-plug"></i> Conectar prohub.db</button>
+      <button class="nav-item" id="db-disconnect-btn" onclick="disconnectDbFile()" style="color:var(--text3);display:none"><i class="ti ti-plug-off"></i> Desconectar archivo</button>
+      <button class="nav-item" onclick="saveDbAs()" style="color:var(--purple)"><i class="ti ti-device-floppy"></i> Guardar como .db</button>
+      <button class="nav-item" onclick="document.getElementById('import-db-input').click()"><i class="ti ti-database-import"></i> Importar .db</button>
+      <input type="file" id="import-db-input" accept=".db,.sqlite,.sqlite3" style="display:none" onchange="importDbFile(this)">
+      <button class="nav-item" onclick="downloadDbFile()"><i class="ti ti-download"></i> Descargar .db</button>
+      <div style="height:1px;background:var(--border);margin:8px 0"></div>
+      <button class="nav-item" onclick="exportBackup()" style="color:var(--green);font-size:12px"><i class="ti ti-file-export"></i> Backup JSON</button>
+      <button class="nav-item" onclick="document.getElementById('import-input').click()" style="color:var(--blue);font-size:12px"><i class="ti ti-file-import"></i> Importar JSON</button>
+      <input type="file" id="import-input" accept=".json" style="display:none" onchange="importBackup(this)">
+      <button class="nav-item" onclick="clearData()" style="color:var(--text3);font-size:12px"><i class="ti ti-refresh"></i> Reiniciar datos</button>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title" id="page-title">Mis proyectos</div>
+        <div class="view-switcher" id="view-switcher">
+          <button class="vs-btn active" id="vsb-grid" onclick="setLayoutView('grid')" title="Vista cuadrícula"><i class="ti ti-layout-grid"></i></button>
+          <button class="vs-btn" id="vsb-kanban" onclick="setLayoutView('kanban')" title="Vista kanban"><i class="ti ti-layout-columns"></i></button>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="topbar-search-wrap" id="topbar-search-wrap">
+          <button class="theme-toggle" id="search-toggle-btn" onclick="toggleTopbarSearch()" title="Buscar"><i class="ti ti-search"></i></button>
+          <div class="topbar-search-box" id="topbar-search-box">
+            <i class="ti ti-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;pointer-events:none"></i>
+            <input type="text" id="topbar-search-input" class="topbar-search-input" placeholder="Buscar proyectos, ideas, fases..." oninput="handleGlobalSearch(this.value)" autocomplete="off">
+            <button onclick="closeTopbarSearch()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:15px;padding:0 4px;display:flex;align-items:center"><i class="ti ti-x"></i></button>
+          </div>
+          <div class="search-results" id="search-results"></div>
+        </div>
+        <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Cambiar tema"><i class="ti ti-moon" id="theme-icon"></i></button>
+        <button class="btn-primary" onclick="openModal('new-project')"><i class="ti ti-plus"></i> Nuevo proyecto</button>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+  </div>
+</div>
+<div id="modal-root"></div>
+<div id="notif-root"></div>
+<script src="sql-asm.js"></script>
+<script>
+// ───── SQLite storage layer ─────
+let _sqldb=null;
+let _SQL=null;
+let _fileHandle=null;
+let _idbDb=null;
+let _persistTimer=null;
+let _connectionStatus='disconnected';
+
+function openIDB(){
+  return new Promise((resolve,reject)=>{
+    const req=indexedDB.open('prohub_storage',1);
+    req.onupgradeneeded=e=>{
+      const d=e.target.result;
+      if(!d.objectStoreNames.contains('kv'))d.createObjectStore('kv');
+    };
+    req.onsuccess=e=>resolve(e.target.result);
+    req.onerror=e=>reject(e.target.error);
+  });
+}
+function idbGet(key){
+  return new Promise((resolve,reject)=>{
+    const tx=_idbDb.transaction('kv','readonly');
+    const req=tx.objectStore('kv').get(key);
+    req.onsuccess=e=>resolve(e.target.result);
+    req.onerror=e=>reject(e.target.error);
+  });
+}
+function idbSet(key,value){
+  return new Promise((resolve,reject)=>{
+    const tx=_idbDb.transaction('kv','readwrite');
+    tx.objectStore('kv').put(value,key);
+    tx.oncomplete=()=>resolve();
+    tx.onerror=e=>reject(e.target.error);
+  });
+}
+function ensureSchema(){
+  _sqldb.run(`
+    CREATE TABLE IF NOT EXISTS projects (id TEXT PRIMARY KEY, name TEXT, category TEXT, status TEXT, priority TEXT, data TEXT, updated_at TEXT);
+    CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
+    CREATE TABLE IF NOT EXISTS diario (id TEXT PRIMARY KEY, date TEXT, data TEXT);
+    CREATE TABLE IF NOT EXISTS metas (id TEXT PRIMARY KEY, titulo TEXT, periodo TEXT, data TEXT);
+    CREATE TABLE IF NOT EXISTS plantillas (id TEXT PRIMARY KEY, nombre TEXT, data TEXT);
+    CREATE TABLE IF NOT EXISTS bib_items (id TEXT PRIMARY KEY, type TEXT, title TEXT, "collection" TEXT, fav INTEGER, data TEXT);
+    CREATE TABLE IF NOT EXISTS bib_collections (name TEXT PRIMARY KEY, position INTEGER DEFAULT 0);
+  `);
+}
+function _query(sql,params){
+  const stmt=_sqldb.prepare(sql);
+  if(params&&params.length)stmt.bind(params);
+  const rows=[];
+  while(stmt.step())rows.push(stmt.getAsObject());
+  stmt.free();
+  return rows;
+}
+function _insertProject(p){
+  _sqldb.run('INSERT OR REPLACE INTO projects VALUES (?,?,?,?,?,?,?)',
+    [p.id,p.name||'',p.category||'',p.status||'',p.priority||'',JSON.stringify(p),new Date().toISOString()]);
+}
+function _insertDiario(d){
+  _sqldb.run('INSERT OR REPLACE INTO diario VALUES (?,?,?)',[d.id,d.date||'',JSON.stringify(d)]);
+}
+function _insertMeta(m){
+  _sqldb.run('INSERT OR REPLACE INTO metas VALUES (?,?,?,?)',[m.id,m.titulo||'',m.periodo||'',JSON.stringify(m)]);
+}
+function _insertPlantilla(p){
+  _sqldb.run('INSERT OR REPLACE INTO plantillas VALUES (?,?,?)',[p.id,p.nombre||'',JSON.stringify(p)]);
+}
+function _insertBibItem(it){
+  _sqldb.run('INSERT OR REPLACE INTO bib_items VALUES (?,?,?,?,?,?)',
+    [it.id,it.type||'',it.title||'',it.collection||'',it.fav?1:0,JSON.stringify(it)]);
+}
+function seedDefaults(){
+  defaultProjects().forEach(_insertProject);
+  defaultPlantillas().forEach(_insertPlantilla);
+  defaultBibItems().forEach(_insertBibItem);
+  ['Stack IA','Diseño','Productividad'].forEach((c,i)=>
+    _sqldb.run('INSERT OR REPLACE INTO bib_collections VALUES (?,?)',[c,i]));
+  _sqldb.run('INSERT OR REPLACE INTO settings VALUES (?,?)',['layoutView',JSON.stringify('grid')]);
+}
+function migrateFromLocalStorage(){
+  let migrated=false;
+  try{
+    const raw=localStorage.getItem('prohub_v3');
+    if(raw){
+      const parsed=JSON.parse(raw);
+      if(parsed.projects&&Array.isArray(parsed.projects)){
+        parsed.projects.forEach(_insertProject);
+        if(parsed.settings){
+          for(const [k,v] of Object.entries(parsed.settings))
+            _sqldb.run('INSERT OR REPLACE INTO settings VALUES (?,?)',[k,JSON.stringify(v)]);
+        }
+        migrated=true;
+      }
+    }
+  }catch(e){}
+  try{
+    const raw=localStorage.getItem('prohub_extras_v1');
+    if(raw){
+      const parsed=JSON.parse(raw);
+      (parsed.diario||[]).forEach(_insertDiario);
+      (parsed.metas||[]).forEach(_insertMeta);
+      (parsed.plantillas||[]).forEach(_insertPlantilla);
+      migrated=true;
+    }
+  }catch(e){}
+  try{
+    const raw=localStorage.getItem('prohub_bib_v1');
+    if(raw){
+      const parsed=JSON.parse(raw);
+      (parsed.items||[]).forEach(_insertBibItem);
+      (parsed.collections||[]).forEach((c,i)=>
+        _sqldb.run('INSERT OR REPLACE INTO bib_collections VALUES (?,?)',[c,i]));
+      migrated=true;
+    }
+  }catch(e){}
+  return migrated;
+}
+async function initStorage(){
+  _idbDb=await openIDB();
+  _SQL=await initSqlJs();
+  try{
+    const handle=await idbGet('fileHandle');
+    if(handle){
+      const perm=await handle.queryPermission({mode:'readwrite'});
+      if(perm==='granted')_fileHandle=handle;
+    }
+  }catch(e){}
+  let bytes=null;
+  if(_fileHandle){
+    try{
+      const f=await _fileHandle.getFile();
+      bytes=new Uint8Array(await f.arrayBuffer());
+      _connectionStatus='connected';
+    }catch(e){_fileHandle=null;}
+  }
+  if(!bytes){
+    try{bytes=await idbGet('dbBytes');}catch(e){}
+    if(bytes&&bytes.byteLength>0&&!_fileHandle)_connectionStatus='cached';
+  }
+  if(bytes&&bytes.byteLength>0){
+    _sqldb=new _SQL.Database(bytes);
+    ensureSchema();
+  }else{
+    _sqldb=new _SQL.Database();
+    ensureSchema();
+    const migrated=migrateFromLocalStorage();
+    if(!migrated)seedDefaults();
+    else setTimeout(()=>notif('Datos migrados desde localStorage ✓'),800);
+  }
+}
+function load(){
+  const projects=_query('SELECT data FROM projects ORDER BY updated_at DESC').map(r=>JSON.parse(r.data));
+  const settings={};
+  for(const r of _query('SELECT key, value FROM settings')){
+    try{settings[r.key]=JSON.parse(r.value);}catch(e){}
+  }
+  return{projects,settings};
+}
+function save(d){
+  if(!_sqldb)return;
+  _sqldb.run('BEGIN');
+  try{
+    _sqldb.run('DELETE FROM projects');
+    (d.projects||[]).forEach(_insertProject);
+    _sqldb.run('DELETE FROM settings');
+    for(const [k,v] of Object.entries(d.settings||{}))
+      _sqldb.run('INSERT OR REPLACE INTO settings VALUES (?,?)',[k,JSON.stringify(v)]);
+    _sqldb.run('COMMIT');
+  }catch(e){_sqldb.run('ROLLBACK');throw e;}
+  schedulePersist();
+}
+function schedulePersist(){
+  clearTimeout(_persistTimer);
+  _persistTimer=setTimeout(persistNow,300);
+}
+async function persistNow(){
+  if(!_sqldb)return;
+  try{
+    const bytes=_sqldb.export();
+    await idbSet('dbBytes',bytes);
+    if(_fileHandle){
+      try{
+        const writable=await _fileHandle.createWritable();
+        await writable.write(bytes);
+        await writable.close();
+        if(_connectionStatus!=='connected'){
+          _connectionStatus='connected';
+          updateConnectionUI();
+        }
+      }catch(e){
+        _fileHandle=null;
+        _connectionStatus='cached';
+        updateConnectionUI();
+        notif('No se pudo escribir el archivo .db — guardando solo en caché');
+      }
+    }
+  }catch(e){console.error('Persist failed',e);}
+}
+async function connectDbFile(){
+  if(!_SQL){notif('Cargando base de datos, espera un momento…');return;}
+  if(!('showOpenFilePicker' in window)){
+    notif('Tu navegador no soporta acceso directo. Usa Chrome/Edge o el botón "Importar .db".');
+    return;
+  }
+  try{
+    const [h]=await window.showOpenFilePicker({
+      types:[{description:'SQLite database',accept:{'application/x-sqlite3':['.db','.sqlite','.sqlite3']}}]
+    });
+    const perm=await h.requestPermission({mode:'readwrite'});
+    if(perm!=='granted')return notif('Permiso denegado');
+    const f=await h.getFile();
+    const bytes=new Uint8Array(await f.arrayBuffer());
+    if(bytes.byteLength>0){
+      _sqldb=new _SQL.Database(bytes);
+      ensureSchema();
+    }
+    _fileHandle=h;
+    try{await idbSet('fileHandle',h);}catch(e){}
+    _connectionStatus='connected';
+    db=load();extras=loadExtras();bib=loadBib();
+    layoutView=db.settings?.layoutView||'grid';
+    updateConnectionUI();render();
+    notif('Conectado a '+h.name+' ✓');
+    schedulePersist();
+  }catch(e){
+    if(e.name!=='AbortError')notif('Error al conectar: '+e.message);
+  }
+}
+async function saveDbAs(){
+  if(!_sqldb){notif('Cargando base de datos, espera un momento…');return;}
+  if(!('showSaveFilePicker' in window)){
+    downloadDbFile();
+    return;
+  }
+  try{
+    const h=await window.showSaveFilePicker({
+      suggestedName:'prohub.db',
+      types:[{description:'SQLite database',accept:{'application/x-sqlite3':['.db']}}]
+    });
+    _fileHandle=h;
+    try{await idbSet('fileHandle',h);}catch(e){}
+    _connectionStatus='connected';
+    updateConnectionUI();
+    await persistNow();
+    notif('Guardado como '+h.name+' ✓');
+  }catch(e){
+    if(e.name!=='AbortError')notif('Error al guardar: '+e.message);
+  }
+}
+function downloadDbFile(){
+  if(!_sqldb)return;
+  const bytes=_sqldb.export();
+  const blob=new Blob([bytes],{type:'application/x-sqlite3'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='prohub-'+new Date().toISOString().slice(0,10)+'.db';
+  a.click();
+  notif('Descargado ✓');
+}
+function importDbFile(input){
+  if(!_SQL){notif('Cargando base de datos, espera un momento…');input.value='';return;}
+  const file=input.files[0];
+  if(!file)return;
+  if(!confirm('¿Reemplazar la base de datos actual con '+file.name+'?')){input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const bytes=new Uint8Array(e.target.result);
+      _sqldb=new _SQL.Database(bytes);
+      ensureSchema();
+      db=load();extras=loadExtras();bib=loadBib();
+      layoutView=db.settings?.layoutView||'grid';
+      schedulePersist();render();
+      notif('Base de datos importada ✓');
+    }catch(err){notif('Error: archivo .db inválido');}
+    input.value='';
+  };
+  reader.readAsArrayBuffer(file);
+}
+async function disconnectDbFile(){
+  _fileHandle=null;
+  try{await idbSet('fileHandle',null);}catch(e){}
+  _connectionStatus='cached';
+  updateConnectionUI();
+  notif('Desconectado — datos solo en caché del navegador');
+}
+function updateConnectionUI(){
+  const el=document.getElementById('db-status');
+  if(el){
+    if(_connectionStatus==='connected'){
+      const name=_fileHandle?.name||'prohub.db';
+      el.innerHTML=`<i class="ti ti-database-check" style="color:var(--green);font-size:14px"></i><span style="color:var(--green);font-weight:500">${name}</span>`;
+      el.title='Cambios guardados automáticamente al archivo';
+    }else if(_connectionStatus==='cached'){
+      el.innerHTML=`<i class="ti ti-database" style="color:var(--amber);font-size:14px"></i><span style="color:var(--amber)">Solo caché</span>`;
+      el.title='Datos en caché del navegador. Conecta un archivo .db para persistencia portable.';
+    }else{
+      el.innerHTML=`<i class="ti ti-database-off" style="color:var(--text3);font-size:14px"></i><span style="color:var(--text3)">Sin conectar</span>`;
+    }
+  }
+  const conn=document.getElementById('db-connect-btn');
+  const disc=document.getElementById('db-disconnect-btn');
+  if(conn)conn.style.display=_connectionStatus==='connected'?'none':'';
+  if(disc)disc.style.display=_connectionStatus==='connected'?'':'none';
+}
+function defaultProjects(){
+  return[{
+    id:'p1',name:'Tienda online de ropa',category:'negocio',status:'activo',priority:'alta',
+    description:'E-commerce de ropa streetwear para lanzar en Q3. Enfoque en redes sociales y colaboraciones con creadores locales.',
+    deadline:'2026-09-01',collaborators:['Ana','Marco'],tags:['e-commerce','diseño'],
+    notes:'Revisar tendencias de moda sostenible. El proveedor principal está en conversación, esperar respuesta esta semana.',
+    resources:[{id:'r1',name:'Brief de marca',link:'https://notion.so'},{id:'r2',name:'Moodboard Figma',link:'https://figma.com'}],
+    phases:[
+      {id:'ph1',name:'Investigación de mercado',status:'completed',desc:'Estudiar competencia y público objetivo.',startDate:'2026-03-01',endDate:'2026-03-31',comments:[{author:'Ana',text:'Completado el análisis de 5 competidores principales.'}]},
+      {id:'ph2',name:'Diseño de marca',status:'active',desc:'Logo, paleta, tipografía, identidad visual.',startDate:'2026-04-01',endDate:'2026-05-15',comments:[]},
+      {id:'ph3',name:'Desarrollo web',status:'pending',desc:'Montar tienda en Shopify.',startDate:'2026-05-16',endDate:'2026-07-31',comments:[]},
+      {id:'ph4',name:'Lanzamiento',status:'pending',desc:'Campaña en redes e influencers.',startDate:'2026-08-01',endDate:'2026-09-01',comments:[]}
+    ],
+    ideas:['Colección cápsula de temporada','Alianza con fotógrafo local','Programa de referidos','Drop mensual de piezas limitadas'],
+    tools:[{id:'t1',name:'Canva',phase:'Diseño de marca',link:'https://canva.com'},{id:'t2',name:'Shopify',phase:'Desarrollo web',link:'https://shopify.com'},{id:'t3',name:'Klaviyo',phase:'Lanzamiento',link:'https://klaviyo.com'}]
+  },{
+    id:'p2',name:'Aprender diseño UI',category:'personal',status:'activo',priority:'media',
+    description:'Dominar Figma y principios de diseño de interfaces en 3 meses.',
+    deadline:'2026-08-01',collaborators:[],tags:['diseño','aprendizaje'],
+    notes:'Estudiar 1 hora diaria. Enfocarse en auto-layout esta semana.',
+    resources:[{id:'r3',name:'Curso en Udemy',link:'https://udemy.com'},{id:'r4',name:'Portafolio Notion',link:'https://notion.so'}],
+    phases:[
+      {id:'ph5',name:'Fundamentos de diseño',status:'completed',desc:'Color, tipografía, espaciado.',startDate:'2026-02-01',endDate:'2026-03-01',comments:[]},
+      {id:'ph6',name:'Figma intermedio',status:'active',desc:'Componentes, auto-layout, variables.',startDate:'2026-03-01',endDate:'2026-05-31',comments:[]},
+      {id:'ph7',name:'Proyectos reales',status:'pending',desc:'Rediseñar 3 apps reales.',startDate:'2026-06-01',endDate:'2026-08-01',comments:[]}
+    ],
+    ideas:['Rediseñar la app de Spotify','Crear un sistema de diseño propio','Documentar proceso en LinkedIn'],
+    tools:[{id:'t4',name:'Figma',phase:'Figma intermedio',link:'https://figma.com'},{id:'t5',name:'Mobbin',phase:'Proyectos reales',link:'https://mobbin.com'}]
+  }];
+}
+let db={projects:[],settings:{}};
+let view='inicio';
+let activeProject=null;
+let layoutView='grid';
+let activeDetailTab='fases';
+let activePhaseDoc=null; // {pid, phid}
+let _search='',_cat='all',_status='all',_tag='all',_globalSearch='';
+
+function setView(v,pid){
+  view=v;
+  if(pid)activeProject=db.projects.find(p=>p.id===pid);
+  activeDetailTab='brief';
+  activePhaseDoc=null;
+  updateSidebar();
+  render();
+}
+function setLayoutView(lv){
+  layoutView=lv;
+  db.settings=db.settings||{};
+  db.settings.layoutView=lv;
+  save(db);
+  document.querySelectorAll('.vs-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('vsb-'+lv)?.classList.add('active');
+  render();
+}
+function updateSidebar(){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  if(view==='inicio')document.getElementById('nav-inicio').classList.add('active');
+  if(view==='dashboard'||view==='project-detail')document.getElementById('nav-dashboard').classList.add('active');
+  if(view==='tools-global')document.getElementById('nav-tools').classList.add('active');
+  if(view==='timeline')document.getElementById('nav-timeline').classList.add('active');
+  if(view==='biblioteca')document.getElementById('nav-biblioteca').classList.add('active');
+  if(view==='diario')document.getElementById('nav-diario').classList.add('active');
+  if(view==='metas')document.getElementById('nav-metas').classList.add('active');
+  const allTools=db.projects.reduce((a,p)=>a+p.tools.length,0);
+  document.getElementById('nc-all').textContent=db.projects.length;
+  document.getElementById('nc-tools').textContent=allTools;
+  document.getElementById('nc-bib').textContent=bib.items.length;
+  const titles={inicio:'Inicio',dashboard:'Mis proyectos','project-detail':activeProject?.name||'',tools:'Herramientas',timeline:'Línea de tiempo',biblioteca:'Biblioteca',diario:'Diario',metas:'Metas',plantillas:'Plantillas'};
+  document.getElementById('page-title').textContent=view==='project-detail'?activeProject?.name:titles[view]||'Mis proyectos';
+  const vs=document.getElementById('view-switcher');
+  if(vs)vs.style.display=(view==='dashboard')?'flex':'none';
+}
+function quickFilter(val){
+  view='dashboard';_cat='all';_status='all';_tag='all';
+  if(['personal','negocio'].includes(val))_cat=val;
+  else if(['alta','media','baja'].includes(val)){window._priorityFilter=val;}
+  else _status=val;
+  updateSidebar();render();
+}
+function render(){
+  const el=document.getElementById('main-content');
+  if(view==='inicio')el.innerHTML=renderInicio();
+  else if(view==='dashboard')el.innerHTML=renderDashboard();
+  else if(view==='project-detail'&&activePhaseDoc)el.innerHTML=renderPhaseDoc();
+  else if(view==='project-detail')el.innerHTML=renderDetail();
+  else if(view==='tools-global')el.innerHTML=renderToolsGlobal();
+  else if(view==='timeline')el.innerHTML=renderTimeline();
+  else if(view==='biblioteca')el.innerHTML=renderBiblioteca();
+  else if(view==='diario')el.innerHTML=renderDiario();
+  else if(view==='metas')el.innerHTML=renderMetas();
+  else if(view==='plantillas')el.innerHTML=renderPlantillas();
+}
+
+// collect all tags
+function allTags(){
+  const t=new Set();
+  db.projects.forEach(p=>(p.tags||[]).forEach(tag=>t.add(tag)));
+  return [...t];
+}
+
+function renderDashboard(){
+  const pf=window._priorityFilter||'';
+  let projects=db.projects.filter(p=>{
+    const ms=p.name.toLowerCase().includes(_search.toLowerCase())||(p.description||'').toLowerCase().includes(_search.toLowerCase());
+    const mc=_cat==='all'||p.category===_cat;
+    const ms2=_status==='all'||p.status===_status;
+    const mt=_tag==='all'||(p.tags||[]).includes(_tag);
+    const mp=!pf||p.priority===pf;
+    return ms&&mc&&ms2&&mt&&mp;
+  });
+  if(pf)window._priorityFilter='';
+  const activos=db.projects.filter(p=>p.status==='activo').length;
+  const ideas=db.projects.reduce((a,p)=>a+p.ideas.length,0);
+  const tools=db.projects.reduce((a,p)=>a+p.tools.length,0);
+  const tags=allTags();
+  const tagsHtml=tags.length?`<div class="tag-filter">${['all',...tags].map(t=>`<button class="tag-chip ${_tag===t?'active':''}" onclick="_tag='${t}';render()">${t==='all'?'Todas las etiquetas':t}</button>`).join('')}</div>`:'';
+  const cardsHtml=layoutView==='kanban'?renderKanban(projects):projects.length?`<div class="projects-grid">${projects.map(renderCard).join('')}</div>`:'<div class="projects-grid"><div class="empty"><i class="ti ti-mood-empty"></i><p>No hay proyectos que coincidan.</p></div></div>';
+  return`
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-label">Total</div><div class="stat-value">${db.projects.length}</div></div>
+      <div class="stat-card"><div class="stat-label">Activos</div><div class="stat-value" style="color:var(--accent)">${activos}</div></div>
+      <div class="stat-card"><div class="stat-label">Ideas</div><div class="stat-value" style="color:var(--purple)">${ideas}</div></div>
+      <div class="stat-card"><div class="stat-label">Herramientas</div><div class="stat-value" style="color:var(--amber)">${tools}</div></div>
+    </div>
+    <div class="filters">
+      <input class="filter-input" type="text" placeholder="Filtrar proyectos..." value="${_search}" oninput="_search=this.value;render()">
+      <select class="filter-select" onchange="_cat=this.value;render()">
+        <option value="all" ${_cat==='all'?'selected':''}>Categoría</option>
+        <option value="personal" ${_cat==='personal'?'selected':''}>Personal</option>
+        <option value="negocio" ${_cat==='negocio'?'selected':''}>Negocio</option>
+      </select>
+      <select class="filter-select" onchange="_status=this.value;render()">
+        <option value="all" ${_status==='all'?'selected':''}>Estado</option>
+        <option value="activo">Activo</option>
+        <option value="pausa">En pausa</option>
+        <option value="completado">Completado</option>
+        <option value="idea">Idea</option>
+      </select>
+    </div>
+    ${tagsHtml?`<div style="margin-bottom:1rem">${tagsHtml}</div>`:''}
+    ${cardsHtml}
+  `;
+}
+
+function renderCard(p){
+  const done=p.phases.filter(ph=>ph.status==='completed').length;
+  const total=p.phases.length;
+  const pct=total?Math.round(done/total*100):0;
+  const statL={activo:'Activo',pausa:'En pausa',completado:'Completado',idea:'Idea'};
+  const priL={alta:'Alta',media:'Media',baja:'Baja'};
+  const deadline=p.deadline?new Date(p.deadline+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'short',year:'numeric'}):null;
+  const tagsHtml=(p.tags||[]).map(t=>`<span class="custom-tag-badge">${t}</span>`).join('');
+  return`<div class="project-card" onclick="setView('project-detail','${p.id}')">
+    <div class="card-top">
+      <div class="card-title">${p.name}</div>
+      <div class="card-menu" onclick="event.stopPropagation()">
+        <button class="icon-btn" title="Editar" onclick="openModal('edit','${p.id}')"><i class="ti ti-edit"></i></button>
+        <button class="icon-btn" title="Compartir" onclick="openModal('share','${p.id}')"><i class="ti ti-share"></i></button>
+        <button class="icon-btn" title="Exportar" onclick="exportProject('${p.id}')"><i class="ti ti-download"></i></button>
+        <button class="icon-btn red" title="Eliminar" onclick="delProject('${p.id}')"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+    <div class="card-badges">
+      <span class="badge badge-${p.category}">${p.category==='personal'?'Personal':'Negocio'}</span>
+      <span class="badge badge-${p.status}">${statL[p.status]||p.status}</span>
+      <span class="badge badge-${p.priority}">Prioridad ${priL[p.priority]||p.priority}</span>
+      ${tagsHtml}
+    </div>
+    ${p.description?`<div class="card-desc">${p.description.slice(0,100)}${p.description.length>100?'…':''}</div>`:''}
+    ${total?`<div class="progress-wrap"><div class="progress-meta"><span>${done}/${total} fases</span><span>${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div></div>`:''}
+    <div class="card-bottom">
+      <span>${deadline?'📅 '+deadline:'Sin fecha'}</span>
+      <div class="collabs">${p.collaborators.slice(0,3).map(c=>`<div class="avatar" title="${c}">${c.slice(0,2).toUpperCase()}</div>`).join('')}</div>
+    </div>
+  </div>`;
+}
+
+function renderKanban(projects){
+  const cols=[{key:'idea',label:'Idea'},{key:'activo',label:'Activo'},{key:'pausa',label:'En pausa'},{key:'completado',label:'Completado'}];
+  return`<div class="kanban-board">${cols.map(col=>{
+    const ps=projects.filter(p=>p.status===col.key);
+    return`<div class="kanban-col">
+      <div class="kanban-col-title">${col.label}<span class="kanban-col-count">${ps.length}</span></div>
+      ${ps.map(p=>{
+        const done=p.phases.filter(ph=>ph.status==='completed').length;
+        const total=p.phases.length;
+        const pct=total?Math.round(done/total*100):0;
+        return`<div class="kanban-card" onclick="setView('project-detail','${p.id}')">
+          <div class="kanban-card-title">${p.name}</div>
+          <div class="kanban-card-meta">${p.category==='personal'?'Personal':'Negocio'} · Prioridad ${p.priority}${total?' · '+pct+'%':''}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('')}</div>`;
+}
+
+function renderTimeline(){
+  const projects=db.projects.filter(p=>p.deadline);
+  if(!projects.length)return`<div class="empty"><i class="ti ti-timeline"></i><p>Ningún proyecto tiene fecha límite asignada.</p></div>`;
+  const dates=projects.flatMap(p=>[new Date(p.deadline)]);
+  const minDate=new Date(Math.min(...projects.map(p=>new Date(p.deadline))));
+  const maxDate=new Date(Math.max(...dates));
+  minDate.setDate(1); maxDate.setMonth(maxDate.getMonth()+1); maxDate.setDate(1);
+  const totalDays=(maxDate-minDate)/(1000*60*60*24);
+  const months=[];
+  let d=new Date(minDate);
+  while(d<maxDate){months.push(new Date(d));d.setMonth(d.getMonth()+1)}
+  const monthW=Math.max(60,Math.floor(700/months.length));
+  const colors=['#1D9E75','#534AB7','#185FA5','#854F0B','#993C1D','#3B6D11'];
+  const hdrs=months.map(m=>`<div class="timeline-month" style="width:${monthW}px">${m.toLocaleDateString('es-CL',{month:'short',year:'2-digit'})}</div>`).join('');
+  const rows=projects.map((p,i)=>{
+    const end=new Date(p.deadline+'T00:00:00');
+    const start=new Date(end);start.setMonth(start.getMonth()-Math.max(1,p.phases.length));
+    const s=Math.max(0,(start-minDate)/(maxDate-minDate)*100);
+    const e=Math.min(100,(end-minDate)/(maxDate-minDate)*100);
+    const w=Math.max(2,e-s);
+    const color=colors[i%colors.length];
+    return`<div class="timeline-row">
+      <div class="timeline-label" onclick="setView('project-detail','${p.id}')" title="${p.name}">${p.name}</div>
+      <div class="timeline-track">
+        <div class="timeline-bar" style="left:${s}%;width:${w}%;background:${color}" onclick="setView('project-detail','${p.id}')" title="${p.name} — ${p.deadline}">${p.name}</div>
+      </div>
+    </div>`;
+  }).join('');
+  return`<div class="timeline-wrap"><div class="timeline-header">${hdrs}</div>${rows}</div>`;
+}
+
+function renderDetail(){
+  const p=activeProject;if(!p)return'';
+  const done=p.phases.filter(ph=>ph.status==='completed').length;
+  const pct=p.phases.length?Math.round(done/p.phases.length*100):0;
+  const deadline=p.deadline?new Date(p.deadline+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'}):'—';
+  const statL={activo:'Activo',pausa:'En pausa',completado:'Completado',idea:'Idea'};
+  const priL={alta:'Alta',media:'Media',baja:'Baja'};
+  const tabs=['brief','fases','tareas','ideas','notas','recursos','herramientas'];
+  const tabLabels={brief:'Brief',fases:'Fases',tareas:'Tareas',ideas:'Ideas',notas:'Notas',recursos:'Recursos',herramientas:'Herramientas'};
+  const tabIcons={brief:'ti-file-description',fases:'ti-list-check',tareas:'ti-checkbox',ideas:'ti-bulb',notas:'ti-notes',recursos:'ti-link',herramientas:'ti-tool'};
+  const tagsHtml=(p.tags||[]).map(t=>`<span class="custom-tag-badge">${t}</span>`).join('');
+  let tabContent='';
+  if(activeDetailTab==='brief')tabContent=renderBriefTab(p);
+  else if(activeDetailTab==='fases')tabContent=renderPhasesTab(p);
+  else if(activeDetailTab==='tareas')tabContent=renderTareasSection(p);
+  else if(activeDetailTab==='ideas')tabContent=renderIdeasTab(p);
+  else if(activeDetailTab==='notas')tabContent=renderNotesTab(p);
+  else if(activeDetailTab==='recursos')tabContent=renderResourcesTab(p);
+  else if(activeDetailTab==='herramientas')tabContent=renderToolsTab(p);
+  return`<div class="detail-wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+      <button class="btn-ghost" onclick="setView('dashboard')"><i class="ti ti-arrow-left"></i> Proyectos</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn-ghost" style="font-size:12px;padding:5px 12px;background:var(--surface2)" onclick="openFocusMode('${p.id}')"><i class="ti ti-focus-2"></i> Focus</button>
+        <button class="export-btn" onclick="exportProject('${p.id}')"><i class="ti ti-download"></i> Exportar</button>
+        <button class="btn-ghost" onclick="openModal('share','${p.id}')"><i class="ti ti-share"></i> Compartir</button>
+        <button class="btn-ghost" onclick="openModal('edit','${p.id}')"><i class="ti ti-edit"></i> Editar</button>
+      </div>
+    </div>
+    <div class="detail-head">
+      <div class="detail-title">${p.name}</div>
+    </div>
+    <div class="detail-badges">
+      <span class="badge badge-${p.category}">${p.category==='personal'?'Personal':'Negocio'}</span>
+      <span class="badge badge-${p.status}">${statL[p.status]||p.status}</span>
+      <span class="badge badge-${p.priority}">Prioridad ${priL[p.priority]||p.priority}</span>
+      ${tagsHtml}
+    </div>
+    ${p.description?`<div class="detail-desc">${p.description}</div>`:''}
+    <div class="detail-stats">
+      <div class="ds-card"><div class="ds-label">Fecha límite</div><div class="ds-value">${deadline}</div></div>
+      <div class="ds-card"><div class="ds-label">Progreso</div><div class="ds-value">${pct}%</div></div>
+      <div class="ds-card"><div class="ds-label">Colaboradores</div><div class="ds-value">${p.collaborators.length?p.collaborators.join(', '):'Solo tú'}</div></div>
+      <div class="ds-card"><div class="ds-label">Ideas</div><div class="ds-value">${p.ideas.length}</div></div>
+    </div>
+    <div class="detail-tabs">
+      ${tabs.map(t=>`<button class="detail-tab ${activeDetailTab===t?'active':''}" onclick="switchTab('${t}')"><i class="ti ${tabIcons[t]}"></i> ${tabLabels[t]}</button>`).join('')}
+    </div>
+    ${tabContent}
+  </div>`;
+}
+
+function switchTab(t){activeDetailTab=t;render()}
+
+function openPhaseDoc(pid,phid){
+  activePhaseDoc={pid,phid};
+  render();
+  // set editor content after render
+  setTimeout(()=>{
+    const p=db.projects.find(pr=>pr.id===pid);
+    const ph=p.phases.find(ph=>ph.id===phid);
+    const editor=document.getElementById('phase-editor');
+    if(editor)editor.innerHTML=ph.doc||'';
+  },30);
+}
+
+function closePhaseDoc(){
+  activePhaseDoc=null;
+  render();
+}
+
+function renderPhaseDoc(){
+  const {pid,phid}=activePhaseDoc;
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const stL={pending:'Pendiente',active:'En curso',completed:'Completado'};
+  const dateStr=(ph.startDate||ph.endDate)?`${ph.startDate?new Date(ph.startDate+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'long'}):''}${ph.startDate&&ph.endDate?' → ':''}${ph.endDate?new Date(ph.endDate+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'}):''}`:'';
+  return`<div class="phase-doc-wrap">
+    <div class="phase-doc-topbar">
+      <div class="phase-doc-breadcrumb">
+        <span onclick="setView('dashboard')">Proyectos</span>
+        <i class="ti ti-chevron-right"></i>
+        <span onclick="closePhaseDoc()">${p.name}</span>
+        <i class="ti ti-chevron-right"></i>
+        <span style="color:var(--text2)">${ph.name}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="doc-saved" id="doc-saved">Guardado ✓</span>
+        <button class="btn-ghost" style="font-size:12px;padding:5px 10px" onclick="exportPhaseDoc('${pid}','${phid}')"><i class="ti ti-download"></i> Exportar</button>
+        <button class="btn-ghost" style="font-size:12px;padding:5px 10px" onclick="closePhaseDoc()"><i class="ti ti-arrow-left"></i> Volver</button>
+      </div>
+    </div>
+
+    <div class="phase-doc-meta">
+      <button class="phase-doc-status ${ph.status}" onclick="cyclePhaseInDoc('${pid}','${phid}')">${stL[ph.status]||ph.status}</button>
+      ${dateStr?`<span style="font-size:12px;color:var(--text3)">${dateStr}</span>`:''}
+      ${ph.desc?`<span style="font-size:12px;color:var(--text3)">·</span><span style="font-size:12px;color:var(--text2)">${ph.desc}</span>`:''}
+    </div>
+
+    <div class="editor-toolbar">
+      <select class="tb-select" onchange="execCmd('formatBlock',this.value);this.value='p'">
+        <option value="p">Párrafo</option>
+        <option value="h1">Título 1</option>
+        <option value="h2">Título 2</option>
+        <option value="h3">Título 3</option>
+      </select>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="execCmd('bold')" title="Negrita"><i class="ti ti-bold"></i></button>
+      <button class="tb-btn" onclick="execCmd('italic')" title="Cursiva"><i class="ti ti-italic"></i></button>
+      <button class="tb-btn" onclick="execCmd('underline')" title="Subrayado"><i class="ti ti-underline"></i></button>
+      <button class="tb-btn" onclick="execCmd('strikeThrough')" title="Tachado"><i class="ti ti-strikethrough"></i></button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="execCmd('insertUnorderedList')" title="Lista con viñetas"><i class="ti ti-list"></i></button>
+      <button class="tb-btn" onclick="execCmd('insertOrderedList')" title="Lista numerada"><i class="ti ti-list-numbers"></i></button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="insertBlockquote()" title="Cita"><i class="ti ti-blockquote"></i></button>
+      <button class="tb-btn" onclick="insertHr()" title="Separador"><i class="ti ti-minus"></i></button>
+      <button class="tb-btn" onclick="insertLink()" title="Enlace"><i class="ti ti-link"></i></button>
+      <button class="tb-btn" onclick="execCmd('removeFormat')" title="Limpiar formato"><i class="ti ti-clear-formatting"></i></button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="execCmd('undo')" title="Deshacer"><i class="ti ti-arrow-back-up"></i></button>
+      <button class="tb-btn" onclick="execCmd('redo')" title="Rehacer"><i class="ti ti-arrow-forward-up"></i></button>
+    </div>
+
+    <div class="editor-area"
+      id="phase-editor"
+      contenteditable="true"
+      data-placeholder="Empieza a escribir el detalle de esta fase... Puedes usar la barra de herramientas para dar formato."
+      oninput="autoSaveDoc('${pid}','${phid}')"
+    ></div>
+  </div>`;
+}
+
+let _docTimer=null;
+function autoSaveDoc(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const editor=document.getElementById('phase-editor');
+  if(!editor)return;
+  ph.doc=editor.innerHTML;
+  save(db);
+  clearTimeout(_docTimer);
+  const el=document.getElementById('doc-saved');
+  if(el){el.classList.add('show');_docTimer=setTimeout(()=>el.classList.remove('show'),1500)}
+}
+
+function cyclePhaseInDoc(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.status={pending:'active',active:'completed',completed:'pending'}[ph.status]||'pending';
+  save(db);
+  // re-render only the meta part without losing editor content
+  const content=document.getElementById('phase-editor')?.innerHTML||'';
+  render();
+  setTimeout(()=>{const ed=document.getElementById('phase-editor');if(ed)ed.innerHTML=content;},30);
+}
+
+function execCmd(cmd,val=null){
+  document.getElementById('phase-editor')?.focus();
+  document.execCommand(cmd,false,val);
+}
+
+function insertBlockquote(){
+  document.getElementById('phase-editor')?.focus();
+  document.execCommand('formatBlock',false,'blockquote');
+}
+
+function insertHr(){
+  document.getElementById('phase-editor')?.focus();
+  document.execCommand('insertHTML',false,'<hr>');
+}
+
+function insertLink(){
+  const url=prompt('URL del enlace:');
+  if(url){document.getElementById('phase-editor')?.focus();document.execCommand('createLink',false,url);}
+}
+
+function exportPhaseDoc(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const editor=document.getElementById('phase-editor');
+  const html=editor?editor.innerHTML:(ph.doc||'');
+  // convert basic html to markdown-ish plain text
+  const tmp=document.createElement('div');tmp.innerHTML=html;
+  const text=tmp.innerText||tmp.textContent||'';
+  const full=`# ${ph.name}\n**Proyecto:** ${p.name}\n**Estado:** ${{pending:'Pendiente',active:'En curso',completed:'Completado'}[ph.status]||ph.status}\n${ph.startDate?'**Inicio:** '+ph.startDate:''}${ph.endDate?' **Fin:** '+ph.endDate:''}\n\n---\n\n${text}\n\n---\nExportado el ${new Date().toLocaleDateString('es-CL')}`;
+  const blob=new Blob([full],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`${p.name}-${ph.name}.txt`.replace(/\s+/g,'-');
+  a.click();
+  notif('Exportado ✓');
+}
+
+function renderBriefTab(p){
+  const b=p.brief||{};
+  const fields=[
+    {key:'objetivo',   label:'Objetivo principal',  hint:'¿Qué quieres lograr con este proyecto?',          icon:'ti-target',       color:'#e1f5ee', iconColor:'#1D9E75', full:true,  ph:'Ej. Lanzar una tienda online que genere $X en ventas antes de septiembre.'},
+    {key:'problema',   label:'Problema que resuelve',hint:'¿Por qué existe este proyecto?',                  icon:'ti-bulb',         color:'#eeedfe', iconColor:'#534AB7', full:false, ph:'Ej. No existe una forma fácil de comprar ropa local sin ir a una tienda.'},
+    {key:'publico',    label:'Público objetivo',     hint:'¿A quién va dirigido?',                           icon:'ti-users',        color:'#e6f1fb', iconColor:'#185FA5', full:false, ph:'Ej. Jóvenes de 18-30 años en Santiago interesados en moda local.'},
+    {key:'metricas',   label:'Métricas de éxito',    hint:'¿Cómo sabrás que funcionó? KPIs concretos.',      icon:'ti-chart-bar',    color:'#faeeda', iconColor:'#854F0B', full:false, ph:'Ej. 100 ventas en el primer mes, ROAS > 2.5, tasa de conversión > 2%.'},
+    {key:'alcance',    label:'Alcance',               hint:'¿Qué incluye y qué NO incluye?',                  icon:'ti-box',          color:'#eaf3de', iconColor:'#3B6D11', full:false, ph:'Incluye: tienda online, redes sociales. No incluye: tienda física, logística propia.'},
+    {key:'restricciones',label:'Restricciones',       hint:'Presupuesto, tiempo, equipo, limitaciones.',      icon:'ti-lock',         color:'#faece7', iconColor:'#993C1D', full:false, ph:'Ej. Presupuesto máximo $500 USD, solo 2 personas, sin inversión en ads el primer mes.'},
+    {key:'supuestos',  label:'Supuestos',             hint:'Cosas que das por ciertas para arrancar.',        icon:'ti-checkbox',     color:'#f0efe9', iconColor:'#5a5a54', full:false, ph:'Ej. El proveedor confirmará stock en 2 semanas. El dominio ya está disponible.'},
+    {key:'riesgos',    label:'Riesgos principales',   hint:'¿Qué podría salir mal?',                         icon:'ti-alert-triangle',color:'#faece7',iconColor:'#993C1D', full:false, ph:'Ej. El proveedor no cumple plazos. La campaña no genera tráfico suficiente.'},
+    {key:'referencias',label:'Inspiración / referencias',hint:'Proyectos similares, benchmarks, ejemplos.',  icon:'ti-bookmark',     color:'#eeedfe', iconColor:'#534AB7', full:false, ph:'Ej. Tienda X como referencia de diseño. Newsletter Y como referencia de comunicación.'},
+    {key:'decisiones', label:'Decisiones clave tomadas',hint:'Lo que ya está definido y no se va a cuestionar.',icon:'ti-check',     color:'#e1f5ee', iconColor:'#1D9E75', full:false, ph:'Ej. Se usará Shopify. El nombre de marca ya está registrado. Logo aprobado.'},
+  ];
+  const completedFields=fields.filter(f=>b[f.key]&&b[f.key].trim()).length;
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-file-description" style="color:var(--blue)"></i> Brief del proyecto</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:12px;color:var(--text3)">${completedFields}/${fields.length} campos completados</span>
+        <span class="brief-saved" id="brief-saved">Guardado ✓</span>
+      </div>
+    </div>
+    <div class="brief-grid">
+      ${fields.map(f=>`
+        <div class="brief-field ${f.full?'full':''}">
+          <div class="brief-field-header">
+            <div class="brief-field-icon" style="background:${f.color}"><i class="ti ${f.icon}" style="color:${f.iconColor};font-size:16px"></i></div>
+            <div>
+              <div class="brief-field-label">${f.label}</div>
+              <div class="brief-field-hint">${f.hint}</div>
+            </div>
+          </div>
+          <textarea class="brief-textarea" placeholder="${f.ph}" oninput="autoSaveBrief('${p.id}','${f.key}',this.value)">${b[f.key]||''}</textarea>
+        </div>
+      `).join('')}
+    </div>
+  </div>`;
+}
+
+let _briefTimer=null;
+function autoSaveBrief(pid,key,val){
+  const p=db.projects.find(pr=>pr.id===pid);
+  if(!p.brief)p.brief={};
+  p.brief[key]=val;
+  save(db);
+  clearTimeout(_briefTimer);
+  const el=document.getElementById('brief-saved');
+  if(el){el.classList.add('show');_briefTimer=setTimeout(()=>el.classList.remove('show'),1500)}
+}
+
+function renderPhasesTab(p){
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-list-check" style="color:var(--accent)"></i> Fases <span class="sec-count">${p.phases.length}</span></div>
+      <button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="openModal('add-phase','${p.id}')"><i class="ti ti-plus"></i> Añadir</button>
+    </div>
+    <div class="phases-list">
+      ${p.phases.length?p.phases.map((ph,i)=>`
+        <div class="phase-item">
+          <div class="phase-num">${i+1}</div>
+          <div class="phase-body">
+            <div class="phase-name">${ph.name}</div>
+            ${ph.desc?`<div class="phase-desc-text">${ph.desc}</div>`:''}
+            ${(ph.startDate||ph.endDate)?`<div class="phase-dates">${ph.startDate?'Inicio: '+new Date(ph.startDate+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'short'}):''}${ph.startDate&&ph.endDate?' · ':''}${ph.endDate?'Fin: '+new Date(ph.endDate+'T00:00:00').toLocaleDateString('es-CL',{day:'numeric',month:'short'}):''}</div>`:''}
+            <div class="phase-comments">
+              ${(ph.comments||[]).map((c,ci)=>`<div class="phase-comment" style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><span><span class="phase-comment-author">${c.author}:</span>${c.text}</span><button onclick="delComment('${p.id}','${ph.id}',${ci})" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;padding:0;flex-shrink:0;transition:color .15s" title="Borrar comentario" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'"><i class="ti ti-x"></i></button></div>`).join('')}
+              <div class="add-comment-wrap">
+                <input class="add-comment-input" id="ci-${ph.id}" placeholder="Añadir comentario..." onkeydown="if(event.key==='Enter')addComment('${p.id}','${ph.id}')">
+                <button class="add-comment-btn" onclick="addComment('${p.id}','${ph.id}')">Enviar</button>
+              </div>
+            </div>
+          </div>
+          <div class="phase-actions">
+            <button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="openPhaseDoc('${p.id}','${ph.id}')"><i class="ti ti-file-text"></i> Doc</button>
+            <div style="position:relative;display:inline-block">
+              <button class="btn-ghost" style="font-size:12px;padding:4px 10px;position:relative" onclick="togglePhaseTools('${ph.id}',event)">
+                <i class="ti ti-tool"></i> Herramientas
+                ${(ph.tools||[]).length?`<span style="position:absolute;top:-5px;right:-5px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center">${ph.tools.length}</span>`:''}
+              </button>
+              <div id="phtools-${ph.id}" style="display:none;position:absolute;top:calc(100% + 8px);right:0;width:340px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:12px;box-shadow:var(--shadow-lg);z-index:60;animation:popIn .15s ease">
+                <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Herramientas de esta fase</div>
+                <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+                  ${(ph.tools||[]).length?(ph.tools||[]).map((t,ti)=>`
+                    <div style="display:flex;align-items:center;gap:8px;background:var(--surface2);border-radius:9px;padding:7px 10px">
+                      <i class="ti ti-tool" style="font-size:13px;color:var(--accent)"></i>
+                      <span style="font-size:12px;font-weight:500;flex:1;color:var(--text)">${t.name}</span>
+                      ${t.link?`<a href="${t.link}" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:3px;padding:3px 8px;background:var(--accent-light);border-radius:6px;white-space:nowrap"><i class="ti ti-external-link"></i> Abrir</a>`:''}
+                      <button onclick="delPhaseTool('${p.id}','${ph.id}',${ti})" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;padding:2px;border-radius:5px;flex-shrink:0" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'"><i class="ti ti-x"></i></button>
+                    </div>`).join(''):'<div style="font-size:12px;color:var(--text3);padding:4px 0">Sin herramientas todavía.</div>'}
+                </div>
+                <div style="display:flex;gap:6px;border-top:1px solid var(--border);padding-top:10px">
+                  <input id="pt-name-${ph.id}" placeholder="Nombre..." style="flex:1;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;min-width:0" onkeydown="if(event.key==='Enter')addPhaseTool('${p.id}','${ph.id}')">
+                  <input id="pt-link-${ph.id}" placeholder="Link..." style="flex:1;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;min-width:0" onkeydown="if(event.key==='Enter')addPhaseTool('${p.id}','${ph.id}')">
+                  <button onclick="addPhaseTool('${p.id}','${ph.id}')" style="background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:500;white-space:nowrap;flex-shrink:0">+ Añadir</button>
+                </div>
+              </div>
+            </div>
+            <div class="phase-status-dropdown" id="psd-${ph.id}">
+              <button class="phase-status-pill ${ph.status}" onclick="toggleStatusDropdown('${ph.id}',event)">
+                <span class="phase-status-dot"></span>
+                ${{pending:'Pendiente',active:'En curso',completed:'Completado'}[ph.status]}
+                <i class="ti ti-chevron-down"></i>
+              </button>
+              <div class="status-popup" id="spp-${ph.id}">
+                <div class="status-option so-pending ${ph.status==='pending'?'selected':''}" onclick="pickPhaseStatus('${p.id}','${ph.id}','pending')"><span class="status-option-dot"></span> Pendiente</div>
+                <div class="status-option so-active ${ph.status==='active'?'selected':''}" onclick="pickPhaseStatus('${p.id}','${ph.id}','active')"><span class="status-option-dot"></span> En curso</div>
+                <div class="status-option so-completed ${ph.status==='completed'?'selected':''}" onclick="pickPhaseStatus('${p.id}','${ph.id}','completed')"><span class="status-option-dot"></span> Completado</div>
+              </div>
+            </div>
+            <button class="icon-btn" title="Editar fase" onclick="openModal('edit-phase','${p.id}','${ph.id}')"><i class="ti ti-edit"></i></button>
+            <button class="icon-btn red" onclick="delPhase('${p.id}','${ph.id}')"><i class="ti ti-x"></i></button>
+          </div>
+        </div>`).join(''):'<div style="font-size:13px;color:var(--text3);padding:6px 0">Sin fases todavía.</div>'}
+    </div>
+  </div>`;
+}
+
+function renderIdeasTab(p){
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-bulb" style="color:var(--purple)"></i> Ideas <span class="sec-count">${p.ideas.length}</span></div>
+      <button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="openModal('add-idea','${p.id}')"><i class="ti ti-plus"></i> Añadir</button>
+    </div>
+    <div class="ideas-grid">
+      ${p.ideas.length?p.ideas.map((idea,i)=>`<div class="idea-card"><div class="idea-text">${idea}</div><button class="idea-del" onclick="delIdea('${p.id}',${i})"><i class="ti ti-x"></i></button></div>`).join(''):'<div style="font-size:13px;color:var(--text3)">Sin ideas todavía.</div>'}
+    </div>
+  </div>`;
+}
+
+function renderNotesTab(p){
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-notes" style="color:var(--amber)"></i> Notas libres</div>
+    </div>
+    <textarea class="notes-area" id="notes-ta" placeholder="Escribe aquí notas, contexto, decisiones, pensamientos en bruto..." oninput="autoSaveNotes('${p.id}')">${p.notes||''}</textarea>
+    <div class="notes-saved" id="notes-saved">Guardado ✓</div>
+  </div>`;
+}
+
+function renderResourcesTab(p){
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-link" style="color:var(--blue)"></i> Recursos y archivos <span class="sec-count">${(p.resources||[]).length}</span></div>
+      <button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="openModal('add-resource','${p.id}')"><i class="ti ti-plus"></i> Añadir</button>
+    </div>
+    <div class="resources-list">
+      ${(p.resources||[]).length?(p.resources||[]).map(r=>`<div class="resource-item">
+        <i class="ti ti-link resource-icon"></i>
+        <span class="resource-name">${r.name}</span>
+        ${r.link?`<a class="resource-link" href="${r.link}" target="_blank"><i class="ti ti-external-link"></i> Abrir</a>`:''}
+        <button class="icon-btn red" onclick="delResource('${p.id}','${r.id}')"><i class="ti ti-x"></i></button>
+      </div>`).join(''):'<div style="font-size:13px;color:var(--text3)">Sin recursos añadidos.</div>'}
+    </div>
+  </div>`;
+}
+
+function renderToolsTab(p){
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-tool" style="color:var(--amber)"></i> Herramientas <span class="sec-count">${p.tools.length}</span></div>
+      <button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="openModal('add-tool','${p.id}')"><i class="ti ti-plus"></i> Añadir</button>
+    </div>
+    <div class="tools-list">
+      ${p.tools.length?p.tools.map(t=>`<div class="tool-item">
+        <i class="ti ti-tool" style="font-size:16px;color:var(--text3)"></i>
+        <span class="tool-name">${t.name}</span>
+        ${t.phase?`<span class="tool-phase-tag">${t.phase}</span>`:''}
+        ${t.link?`<a class="tool-link" href="${t.link}" target="_blank"><i class="ti ti-external-link"></i> Abrir</a>`:''}
+        <button class="icon-btn red" onclick="delTool('${p.id}','${t.id}')"><i class="ti ti-x"></i></button>
+      </div>`).join(''):'<div style="font-size:13px;color:var(--text3)">Sin herramientas todavía.</div>'}
+    </div>
+  </div>`;
+}
+
+function renderToolsGlobal(){
+  const all=[];
+  db.projects.forEach(p=>p.tools.forEach(t=>all.push({...t,pName:p.name,pid:p.id})));
+  return`<div style="margin-bottom:1.25rem"><div style="font-size:14px;font-weight:500;margin-bottom:4px">Todas las herramientas</div><div style="font-size:13px;color:var(--text2)">${all.length} herramientas en ${db.projects.filter(p=>p.tools.length).length} proyectos.</div></div>
+  <div class="tools-list">
+    ${all.length?all.map(t=>`<div class="tool-item"><i class="ti ti-tool" style="font-size:16px;color:var(--text3)"></i><span class="tool-name">${t.name}</span><span class="project-link-tag" onclick="setView('project-detail','${t.pid}')">${t.pName}</span>${t.phase?`<span class="tool-phase-tag">${t.phase}</span>`:''}${t.link?`<a class="tool-link" href="${t.link}" target="_blank"><i class="ti ti-external-link"></i> Abrir</a>`:''}</div>`).join(''):'<div style="font-size:13px;color:var(--text3)">No hay herramientas registradas.</div>'}
+  </div>`;
+}
+
+// GLOBAL SEARCH
+let _gsResults=[];
+function toggleTopbarSearch(){
+  const box=document.getElementById('topbar-search-box');
+  const isOpen=box?.classList.contains('open');
+  if(isOpen){closeTopbarSearch();}
+  else{box?.classList.add('open');setTimeout(()=>document.getElementById('topbar-search-input')?.focus(),50);}
+}
+function closeTopbarSearch(){
+  const box=document.getElementById('topbar-search-box');
+  box?.classList.remove('open');
+  const inp=document.getElementById('topbar-search-input');
+  if(inp)inp.value='';
+  _globalSearch='';_gsResults=[];
+  hideSearchResults();
+}
+function handleGlobalSearch(val){
+  _globalSearch=val;
+  if(!val.trim()){_gsResults=[];hideSearchResults();return}
+  const q=val.toLowerCase();
+  const results=[];
+  db.projects.forEach(p=>{
+    if(p.name.toLowerCase().includes(q))results.push({type:'Proyecto',name:p.name,proj:p.name,pid:p.id,tab:null});
+    p.ideas.forEach(idea=>{if(idea.toLowerCase().includes(q))results.push({type:'Idea',name:idea,proj:p.name,pid:p.id,tab:'ideas'})});
+    p.phases.forEach(ph=>{if(ph.name.toLowerCase().includes(q))results.push({type:'Fase',name:ph.name,proj:p.name,pid:p.id,tab:'fases'})});
+    p.tools.forEach(t=>{if(t.name.toLowerCase().includes(q))results.push({type:'Herramienta',name:t.name,proj:p.name,pid:p.id,tab:'herramientas'})});
+    (p.resources||[]).forEach(r=>{if(r.name.toLowerCase().includes(q))results.push({type:'Recurso',name:r.name,proj:p.name,pid:p.id,tab:'recursos'})});
+  });
+  _gsResults=results.slice(0,8);
+  showSearchResults();
+}
+function showSearchResults(){
+  const el=document.getElementById('search-results');
+  if(!el)return;
+  if(!_gsResults.length&&!_globalSearch){el.classList.remove('open');return}
+  if(!_gsResults.length){el.innerHTML='<div class="sr-item"><span class="sr-name" style="color:var(--text3)">Sin resultados</span></div>';el.classList.add('open');return}
+  el.innerHTML=_gsResults.map((r,i)=>`<div class="sr-item" onmousedown="goToResult(${i})"><span class="sr-type">${r.type}</span><span class="sr-name">${r.name}</span><span class="sr-proj">${r.proj}</span></div>`).join('');
+  el.classList.add('open');
+}
+function hideSearchResults(){const el=document.getElementById('search-results');if(el)el.classList.remove('open')}
+function goToResult(i){
+  const r=_gsResults[i];
+  closeTopbarSearch();
+  setView('project-detail',r.pid);
+  if(r.tab){activeDetailTab=r.tab;render()}
+}
+
+// NOTES AUTO-SAVE
+let _notesTimer=null;
+function autoSaveNotes(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  p.notes=document.getElementById('notes-ta').value;
+  save(db);
+  clearTimeout(_notesTimer);
+  const el=document.getElementById('notes-saved');
+  if(el){el.classList.add('show');_notesTimer=setTimeout(()=>el.classList.remove('show'),1500)}
+}
+
+// MODAL
+function openModal(type,pid,phid){
+  const p=pid?db.projects.find(pr=>pr.id===pid):null;
+  const ph=(phid&&p)?p.phases.find(ph=>ph.id===phid):null;
+  let html='';
+  if(type==='new-project'||type==='edit'){
+    const isEdit=type==='edit';
+    const currentTags=(isEdit?(p.tags||[]):[]).join(', ');
+    html=`<div class="modal-title">${isEdit?'Editar proyecto':'Nuevo proyecto'}</div>
+      <div class="form-group"><label class="form-label">Nombre *</label><input class="form-input" id="fn" value="${isEdit?p.name:''}"></div>
+      <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="fd">${isEdit?(p.description||''):''}</textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Categoría</label><select class="form-select" id="fc"><option value="personal" ${!isEdit||p.category==='personal'?'selected':''}>Personal</option><option value="negocio" ${isEdit&&p.category==='negocio'?'selected':''}>Negocio</option></select></div>
+        <div class="form-group"><label class="form-label">Estado</label><select class="form-select" id="fs"><option value="idea" ${isEdit&&p.status==='idea'?'selected':''}>Idea</option><option value="activo" ${!isEdit||p.status==='activo'?'selected':''}>Activo</option><option value="pausa" ${isEdit&&p.status==='pausa'?'selected':''}>En pausa</option><option value="completado" ${isEdit&&p.status==='completado'?'selected':''}>Completado</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Prioridad</label><select class="form-select" id="fp"><option value="alta" ${isEdit&&p.priority==='alta'?'selected':''}>Alta</option><option value="media" ${!isEdit||p.priority==='media'?'selected':''}>Media</option><option value="baja" ${isEdit&&p.priority==='baja'?'selected':''}>Baja</option></select></div>
+        <div class="form-group"><label class="form-label">Fecha límite</label><input type="date" class="form-input" id="fdl" value="${isEdit?(p.deadline||''):''}"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Colaboradores (separados por coma)</label><input class="form-input" id="fcl" value="${isEdit?p.collaborators.join(', '):''}"></div>
+      <div class="form-group"><label class="form-label">Etiquetas (separadas por coma)</label><input class="form-input" id="ftags" placeholder="ej. diseño, urgente, cliente" value="${currentTags}"></div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="${isEdit?`saveEdit('${p.id}')`:'saveNew()'}">  ${isEdit?'Guardar':'Crear proyecto'}</button></div>`;
+  } else if(type==='add-phase'){
+    html=`<div class="modal-title">Añadir fase</div>
+      <div class="form-group"><label class="form-label">Nombre *</label><input class="form-input" id="fpn"></div>
+      <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="fpd"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Fecha inicio</label><input type="date" class="form-input" id="fps"></div>
+        <div class="form-group"><label class="form-label">Fecha fin</label><input type="date" class="form-input" id="fpe"></div>
+      </div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="savePhase('${p.id}')">Añadir</button></div>`;
+  } else if(type==='edit-phase'){
+    html=`<div class="modal-title">Editar fase</div>
+      <div class="form-group"><label class="form-label">Nombre *</label><input class="form-input" id="fpn" value="${ph.name}"></div>
+      <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="fpd">${ph.desc||''}</textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Fecha inicio</label><input type="date" class="form-input" id="fps" value="${ph.startDate||''}"></div>
+        <div class="form-group"><label class="form-label">Fecha fin</label><input type="date" class="form-input" id="fpe" value="${ph.endDate||''}"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Estado</label>
+        <select class="form-select" id="fphst">
+          <option value="pending" ${ph.status==='pending'?'selected':''}>Pendiente</option>
+          <option value="active" ${ph.status==='active'?'selected':''}>En curso</option>
+          <option value="completed" ${ph.status==='completed'?'selected':''}>Completado</option>
+        </select>
+      </div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="saveEditPhase('${p.id}','${ph.id}')">Guardar cambios</button></div>`;
+  } else if(type==='add-idea'){
+    html=`<div class="modal-title">Nueva idea</div>
+      <div class="form-group"><label class="form-label">¿Cuál es tu idea?</label><textarea class="form-textarea" id="fid" placeholder="Escribe aquí..."></textarea></div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="saveIdea('${p.id}')">Guardar</button></div>`;
+  } else if(type==='add-tool'){
+    const opts=p.phases.map(ph=>`<option value="${ph.name}">${ph.name}</option>`).join('');
+    html=`<div class="modal-title">Añadir herramienta</div>
+      <div class="form-group"><label class="form-label">Nombre *</label><input class="form-input" id="ftn" placeholder="Notion, Figma, Trello..."></div>
+      <div class="form-group"><label class="form-label">Fase asociada</label><select class="form-select" id="ftp"><option value="">Sin fase específica</option>${opts}</select></div>
+      <div class="form-group"><label class="form-label">Link</label><input class="form-input" id="ftl" placeholder="https://..."></div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="saveTool('${p.id}')">Añadir</button></div>`;
+  } else if(type==='add-resource'){
+    html=`<div class="modal-title">Añadir recurso</div>
+      <div class="form-group"><label class="form-label">Nombre *</label><input class="form-input" id="frn" placeholder="ej. Brief de marca, Figma, Drive..."></div>
+      <div class="form-group"><label class="form-label">Link</label><input class="form-input" id="frl" placeholder="https://..."></div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="saveResource('${p.id}')">Añadir</button></div>`;
+  } else if(type==='share'){
+    const url=`${window.location.href.split('?')[0]}?project=${p.id}&name=${encodeURIComponent(p.name)}`;
+    const collabs=p.collaborators.length?p.collaborators.map(c=>`<div style="display:flex;align-items:center;gap:8px;font-size:13px"><div class="avatar" style="width:28px;height:28px;font-size:11px">${c.slice(0,2).toUpperCase()}</div>${c}</div>`).join(''):'<div style="font-size:13px;color:var(--text3)">Sin colaboradores.</div>';
+    html=`<div class="modal-title">Compartir proyecto</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:10px">Comparte este link para que otros puedan ver el proyecto.</div>
+      <div class="share-box"><span class="share-url" id="surl">${url}</span><button class="btn-ghost" style="font-size:12px;padding:4px 10px" onclick="copyUrl()"><i class="ti ti-copy"></i> Copiar</button></div>
+      <div style="margin-top:1.25rem"><div style="font-size:13px;font-weight:500;margin-bottom:10px">Colaboradores</div><div style="display:flex;flex-direction:column;gap:8px">${collabs}</div></div>
+      <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cerrar</button></div>`;
+  }
+  document.getElementById('modal-root').innerHTML=`<div class="modal-overlay" onclick="overlayClose(event)"><div class="modal">${html}</div></div>`;
+  const first=document.querySelector('.modal .form-input,.modal .form-textarea');
+  if(first)setTimeout(()=>first.focus(),50);
+}
+
+function closeModal(){document.getElementById('modal-root').innerHTML=''}
+function overlayClose(e){if(e.target.classList.contains('modal-overlay'))closeModal()}
+
+function saveNew(){
+  const name=document.getElementById('fn').value.trim();
+  if(!name)return notif('El nombre es obligatorio');
+  const cl=document.getElementById('fcl').value;
+  const tags=document.getElementById('ftags').value;
+  db.projects.unshift({
+    id:'p'+Date.now(),name,
+    description:document.getElementById('fd').value.trim(),
+    category:document.getElementById('fc').value,
+    status:document.getElementById('fs').value,
+    priority:document.getElementById('fp').value,
+    deadline:document.getElementById('fdl').value,
+    collaborators:cl?cl.split(',').map(c=>c.trim()).filter(Boolean):[],
+    tags:tags?tags.split(',').map(t=>t.trim()).filter(Boolean):[],
+    notes:'',resources:[],phases:[],ideas:[],tools:[]
+  });
+  save(db);closeModal();render();updateSidebar();notif('Proyecto creado ✓');
+}
+function saveEdit(id){
+  const p=db.projects.find(pr=>pr.id===id);
+  const name=document.getElementById('fn').value.trim();
+  if(!name)return notif('El nombre es obligatorio');
+  const cl=document.getElementById('fcl').value;
+  const tags=document.getElementById('ftags').value;
+  p.name=name;p.description=document.getElementById('fd').value.trim();
+  p.category=document.getElementById('fc').value;p.status=document.getElementById('fs').value;
+  p.priority=document.getElementById('fp').value;p.deadline=document.getElementById('fdl').value;
+  p.collaborators=cl?cl.split(',').map(c=>c.trim()).filter(Boolean):[];
+  p.tags=tags?tags.split(',').map(t=>t.trim()).filter(Boolean):[];
+  if(activeProject&&activeProject.id===id)activeProject=p;
+  save(db);closeModal();render();updateSidebar();notif('Guardado ✓');
+}
+function delProject(id){
+  if(!confirm('¿Eliminar este proyecto?'))return;
+  db.projects=db.projects.filter(p=>p.id!==id);
+  save(db);
+  if(view==='project-detail'&&activeProject&&activeProject.id===id)setView('dashboard');
+  else{render();updateSidebar();}
+  notif('Proyecto eliminado');
+}
+function savePhase(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const name=document.getElementById('fpn').value.trim();
+  if(!name)return notif('Nombre obligatorio');
+  p.phases.push({id:'ph'+Date.now(),name,desc:document.getElementById('fpd').value.trim(),status:'pending',startDate:document.getElementById('fps').value,endDate:document.getElementById('fpe').value,comments:[]});
+  save(db);closeModal();render();notif('Fase añadida ✓');
+}
+function saveEditPhase(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const name=document.getElementById('fpn').value.trim();
+  if(!name)return notif('Nombre obligatorio');
+  ph.name=name;
+  ph.desc=document.getElementById('fpd').value.trim();
+  ph.startDate=document.getElementById('fps').value;
+  ph.endDate=document.getElementById('fpe').value;
+  ph.status=document.getElementById('fphst').value;
+  save(db);closeModal();render();notif('Fase actualizada ✓');
+}
+function toggleStatusDropdown(phid, e){
+  e.stopPropagation();
+  const popup=document.getElementById('spp-'+phid);
+  const pill=popup?.previousElementSibling;
+  const isOpen=popup?.classList.contains('open');
+  // close all open dropdowns first
+  document.querySelectorAll('.status-popup.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.phase-status-pill.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen){
+    popup?.classList.add('open');
+    pill?.classList.add('open');
+  }
+}
+function pickPhaseStatus(pid,phid,status){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.status=status;
+  save(db);
+  // close popup and re-render
+  document.querySelectorAll('.status-popup.open').forEach(el=>el.classList.remove('open'));
+  render();
+}
+function setPhaseStatus(pid,phid,status){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.status=status;
+  save(db);render();
+}
+function cyclePhase(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.status={pending:'active',active:'completed',completed:'pending'}[ph.status]||'pending';
+  save(db);render();
+}
+function delPhase(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  p.phases=p.phases.filter(ph=>ph.id!==phid);
+  save(db);render();
+}
+function togglePhaseTools(phid,e){
+  if(e)e.stopPropagation();
+  const el=document.getElementById('phtools-'+phid);
+  if(!el)return;
+  const isOpen=el.style.display!=='none';
+  // close all open tool dropdowns first
+  document.querySelectorAll('[id^="phtools-"]').forEach(d=>d.style.display='none');
+  if(!isOpen)el.style.display='block';
+}
+function addPhaseTool(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const nameInput=document.getElementById('pt-name-'+phid);
+  const linkInput=document.getElementById('pt-link-'+phid);
+  const name=nameInput?.value.trim();
+  if(!name)return notif('Escribe el nombre de la herramienta');
+  if(!ph.tools)ph.tools=[];
+  ph.tools.push({name,link:linkInput?.value.trim()||''});
+  save(db);
+  // re-render and reopen the dropdown
+  render();
+  setTimeout(()=>{
+    const el=document.getElementById('phtools-'+phid);
+    if(el)el.style.display='block';
+  },20);
+  notif('Herramienta añadida ✓');
+}
+function delPhaseTool(pid,phid,ti){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.tools.splice(ti,1);
+  save(db);
+  render();
+  setTimeout(()=>{
+    const el=document.getElementById('phtools-'+phid);
+    if(el)el.style.display='block';
+  },20);
+}
+function addComment(pid,phid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const input=document.getElementById('ci-'+phid);
+  const text=input?.value.trim();
+  if(!text)return;
+  if(!ph.comments)ph.comments=[];
+  const author=p.collaborators.length?p.collaborators[0]:'Tú';
+  ph.comments.push({author,text});
+  save(db);render();
+}
+function delComment(pid,phid,ci){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  ph.comments.splice(ci,1);
+  save(db);render();
+}
+function saveIdea(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const text=document.getElementById('fid').value.trim();
+  if(!text)return notif('Escribe una idea primero');
+  p.ideas.push(text);save(db);closeModal();render();notif('Idea guardada ✓');
+}
+function delIdea(pid,i){
+  const p=db.projects.find(pr=>pr.id===pid);p.ideas.splice(i,1);save(db);render();
+}
+function saveResource(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const name=document.getElementById('frn').value.trim();
+  if(!name)return notif('Nombre obligatorio');
+  if(!p.resources)p.resources=[];
+  p.resources.push({id:'r'+Date.now(),name,link:document.getElementById('frl').value.trim()});
+  save(db);closeModal();render();notif('Recurso añadido ✓');
+}
+function delResource(pid,rid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  p.resources=(p.resources||[]).filter(r=>r.id!==rid);
+  save(db);render();
+}
+function saveTool(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const name=document.getElementById('ftn').value.trim();
+  if(!name)return notif('Nombre obligatorio');
+  p.tools.push({id:'t'+Date.now(),name,phase:document.getElementById('ftp').value,link:document.getElementById('ftl').value.trim()});
+  save(db);closeModal();render();notif('Herramienta añadida ✓');
+}
+function delTool(pid,tid){
+  const p=db.projects.find(pr=>pr.id===pid);p.tools=p.tools.filter(t=>t.id!==tid);save(db);render();
+}
+function copyUrl(){
+  const url=document.getElementById('surl').textContent;
+  navigator.clipboard.writeText(url).then(()=>notif('Link copiado ✓')).catch(()=>notif('Copia manualmente'));
+}
+function exportProject(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const lines=[
+    `# ${p.name}`,``,
+    `**Categoría:** ${p.category} | **Estado:** ${p.status} | **Prioridad:** ${p.priority}`,
+    `**Fecha límite:** ${p.deadline||'—'}`,
+    `**Colaboradores:** ${p.collaborators.join(', ')||'Solo tú'}`,
+    `**Etiquetas:** ${(p.tags||[]).join(', ')||'—'}`,``,
+    `## Descripción`,p.description||'—',``,
+    `## Fases`,
+    ...p.phases.map((ph,i)=>`${i+1}. [${ph.status==='completed'?'x':ph.status==='active'?'~':' '}] ${ph.name}${ph.desc?' — '+ph.desc:''}`),``,
+    `## Ideas`,
+    ...p.ideas.map(idea=>`- ${idea}`),``,
+    `## Herramientas`,
+    ...p.tools.map(t=>`- ${t.name}${t.phase?' ('+t.phase+')':''}${t.link?' — '+t.link:''}`),``,
+    `## Recursos`,
+    ...(p.resources||[]).map(r=>`- ${r.name}${r.link?' — '+r.link:''}`),``,
+    `## Notas`,p.notes||'—',``,
+    `---`,`Exportado el ${new Date().toLocaleDateString('es-CL')}`
+  ];
+  const blob=new Blob([lines.join('\n')],{type:'text/markdown'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`${p.name.replace(/\s+/g,'-')}.md`;
+  a.click();
+  notif('Exportado ✓');
+}
+function exportBackup(){
+  const all={projects:db.projects,settings:db.settings,extras,bib};
+  const data=JSON.stringify(all,null,2);
+  const date=new Date().toISOString().slice(0,10);
+  const blob=new Blob([data],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`dieguinni-projects-backup-${date}.json`;
+  a.click();
+  notif('Backup exportado ✓');
+}
+function importBackup(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const parsed=JSON.parse(e.target.result);
+      if(!parsed.projects||!Array.isArray(parsed.projects))throw new Error('Formato inválido');
+      if(!confirm(`¿Importar backup? Esto reemplazará todos tus datos actuales (${db.projects.length} proyectos) con los del archivo (${parsed.projects.length} proyectos).`)){input.value='';return;}
+      db={projects:parsed.projects,settings:parsed.settings||{}};
+      save(db);
+      if(parsed.extras){extras={diario:parsed.extras.diario||[],metas:parsed.extras.metas||[],plantillas:parsed.extras.plantillas||[]};saveExtras();}
+      if(parsed.bib){bib={items:parsed.bib.items||[],collections:parsed.bib.collections||[]};saveBib();}
+      setView('dashboard');
+      notif(`Backup importado — ${parsed.projects.length} proyectos cargados ✓`);
+    }catch(err){
+      notif('Error: el archivo no es un backup válido');
+    }
+    input.value='';
+  };
+  reader.readAsText(file);
+}
+function clearData(){
+  if(!_SQL){notif('Cargando base de datos, espera un momento…');return;}
+  if(!confirm('¿Reiniciar todos los datos? Esto borra proyectos, diario, metas y biblioteca.'))return;
+  _sqldb=new _SQL.Database();
+  ensureSchema();
+  seedDefaults();
+  db=load();extras=loadExtras();bib=loadBib();
+  layoutView=db.settings?.layoutView||'grid';
+  schedulePersist();
+  setView('dashboard');notif('Datos reiniciados');
+}
+function notif(msg){
+  const el=document.createElement('div');el.className='notif';el.textContent=msg;
+  document.getElementById('notif-root').appendChild(el);
+  setTimeout(()=>el.remove(),2500);
+}
+function toggleTheme(){
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=isDark?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  document.getElementById('theme-icon').className=next==='dark'?'ti ti-sun':'ti ti-moon';
+  localStorage.setItem('prohub_theme',next);
+}
+function initTheme(){
+  const saved=localStorage.getItem('prohub_theme');
+  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme=saved||(prefersDark?'dark':'light');
+  document.documentElement.setAttribute('data-theme',theme);
+  const icon=document.getElementById('theme-icon');
+  if(icon)icon.className=theme==='dark'?'ti ti-sun':'ti ti-moon';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeModal();
+    closeTopbarSearch();
+    document.querySelectorAll('.status-popup.open').forEach(el=>el.classList.remove('open'));
+    document.querySelectorAll('.phase-status-pill.open').forEach(el=>el.classList.remove('open'));
+  }
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();toggleTopbarSearch();}
+});
+document.addEventListener('click',e=>{
+  document.querySelectorAll('.status-popup.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.phase-status-pill.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('[id^="phtools-"]').forEach(d=>d.style.display='none');
+  const wrap=document.getElementById('topbar-search-wrap');
+  if(wrap&&!wrap.contains(e.target))hideSearchResults();
+});
+// set initial layout view btn
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.vs-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('vsb-'+layoutView)?.classList.add('active');
+});
+// ───── EXTRAS DB (SQLite-backed) ─────
+function loadExtras(){
+  const diario=_query('SELECT data FROM diario ORDER BY date DESC').map(r=>JSON.parse(r.data));
+  const metas=_query('SELECT data FROM metas').map(r=>JSON.parse(r.data));
+  const plantillas=_query('SELECT data FROM plantillas').map(r=>JSON.parse(r.data));
+  return{diario,metas,plantillas};
+}
+function saveExtras(){
+  if(!_sqldb)return;
+  _sqldb.run('BEGIN');
+  try{
+    _sqldb.run('DELETE FROM diario');(extras.diario||[]).forEach(_insertDiario);
+    _sqldb.run('DELETE FROM metas');(extras.metas||[]).forEach(_insertMeta);
+    _sqldb.run('DELETE FROM plantillas');(extras.plantillas||[]).forEach(_insertPlantilla);
+    _sqldb.run('COMMIT');
+  }catch(e){_sqldb.run('ROLLBACK');throw e;}
+  schedulePersist();
+}
+function defaultPlantillas(){
+  return[
+    {id:'pl1',nombre:'Lanzar un producto digital',desc:'Pasos clave para lanzar un producto online.',fases:['Investigación y validación','Diseño y prototipo','Desarrollo / producción','Landing page y preventa','Lanzamiento y marketing','Análisis post-lanzamiento']},
+    {id:'pl2',nombre:'Aprender una habilidad nueva',desc:'Proceso estructurado para aprender algo desde cero.',fases:['Definir objetivo y recursos','Fundamentos (teoría)','Práctica guiada','Proyectos propios','Revisión y portfolio']},
+    {id:'pl3',nombre:'Crear una marca',desc:'Desde la idea hasta la identidad visual completa.',fases:['Research de mercado','Definición de posicionamiento','Naming','Identidad visual','Assets y aplicaciones','Lanzamiento de marca']},
+    {id:'pl4',nombre:'Campaña de marketing',desc:'Planificación y ejecución de una campaña.',fases:['Objetivo y audiencia','Mensaje y creatividades','Canales y presupuesto','Producción de contenido','Lanzamiento','Optimización y reporte']},
+  ];
+}
+let extras={diario:[],metas:[],plantillas:[]};
+
+// ───── DIARIO ─────
+let _diarioActive=null;
+let _diarioTimer=null;
+
+function renderDiario(){
+  const entries=[...extras.diario].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!_diarioActive&&entries.length)_diarioActive=entries[0].id;
+  const active=extras.diario.find(e=>e.id===_diarioActive);
+  const today=new Date().toISOString().slice(0,10);
+  const hasToday=extras.diario.some(e=>e.date===today);
+  return`<div class="diario-layout">
+    <div class="diario-sidebar">
+      <button class="btn-primary" style="width:100%;margin-bottom:10px;font-size:12px;justify-content:center" onclick="newDiarioEntry()"><i class="ti ti-plus"></i> Nueva entrada</button>
+      ${entries.length?entries.map(e=>`
+        <div class="diario-entry-item ${_diarioActive===e.id?'active':''}" onclick="_diarioActive='${e.id}';render()">
+          <div class="diario-entry-date">${formatDate(e.date)}</div>
+          <div class="diario-entry-preview">${(e.content||'').slice(0,40)||'Sin contenido...'}</div>
+        </div>`).join(''):'<div style="font-size:12px;color:var(--text3);padding:6px">Sin entradas aún.</div>'}
+    </div>
+    <div>
+      ${active?`
+        <div class="diario-editor">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+            <div style="font-size:12px;color:var(--text3)">${formatDate(active.date)}</div>
+            <div style="display:flex;gap:6px;align-items:center">
+              <span id="diario-saved" style="font-size:11px;font-weight:500;color:var(--green);opacity:0;transition:opacity .3s">Guardado ✓</span>
+              <button class="icon-btn red" onclick="deleteDiarioEntry('${active.id}')"><i class="ti ti-trash"></i></button>
+            </div>
+          </div>
+          <input class="diario-entry-title" id="diario-title" placeholder="Título del día..." value="${active.title||''}" oninput="saveDiarioField('${active.id}','title',this.value)">
+          <textarea class="diario-textarea" id="diario-content" placeholder="¿Qué hiciste hoy? ¿Qué aprendiste? ¿Qué te bloqueó? ¿Cómo te sentiste con el trabajo?" oninput="saveDiarioField('${active.id}','content',this.value)">${active.content||''}</textarea>
+        </div>`:`
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;color:var(--text3)">
+          <i class="ti ti-notebook" style="font-size:48px;margin-bottom:12px;opacity:.3"></i>
+          <p style="font-size:14px;margin-bottom:12px">No hay entradas todavía</p>
+          <button class="btn-primary" onclick="newDiarioEntry()"><i class="ti ti-plus"></i> Primera entrada</button>
+        </div>`}
+    </div>
+  </div>`;
+}
+function newDiarioEntry(){
+  const today=new Date().toISOString().slice(0,10);
+  const existing=extras.diario.find(e=>e.date===today);
+  if(existing){_diarioActive=existing.id;render();return;}
+  const entry={id:'d'+Date.now(),date:today,title:'',content:''};
+  extras.diario.unshift(entry);
+  _diarioActive=entry.id;
+  saveExtras();render();
+}
+function saveDiarioField(id,field,val){
+  const e=extras.diario.find(e=>e.id===id);
+  if(!e)return;
+  e[field]=val;
+  saveExtras();
+  clearTimeout(_diarioTimer);
+  const el=document.getElementById('diario-saved');
+  if(el){el.style.opacity='1';_diarioTimer=setTimeout(()=>el.style.opacity='0',1500);}
+}
+function deleteDiarioEntry(id){
+  if(!confirm('¿Eliminar esta entrada?'))return;
+  extras.diario=extras.diario.filter(e=>e.id!==id);
+  _diarioActive=extras.diario[0]?.id||null;
+  saveExtras();render();
+}
+function formatDate(d){
+  if(!d)return'';
+  return new Date(d+'T00:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+
+// ───── METAS ─────
+let _metaDetail=null;
+function renderMetas(){
+  const metas=extras.metas||[];
+  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+    <div>
+      <div style="font-size:14px;font-weight:500;margin-bottom:3px">Mis metas</div>
+      <div style="font-size:13px;color:var(--text2)">${metas.length} metas definidas</div>
+    </div>
+    <button class="btn-primary" onclick="openMetaModal()"><i class="ti ti-plus"></i> Nueva meta</button>
+  </div>
+  ${metas.length?`
+    <div class="metas-grid">
+      ${metas.map(m=>renderMetaCard(m)).join('')}
+    </div>`:`
+    <div class="empty"><i class="ti ti-target"></i><p>No hay metas definidas todavía.<br>Empieza añadiendo tu primer objetivo.</p></div>`}`;
+}
+function renderMetaCard(m){
+  const pct=Math.min(100,Math.max(0,m.progreso||0));
+  const periodColors={trimestral:'meta-period-trimestral',anual:'meta-period-anual',mensual:'meta-period-mensual'};
+  const emojis={personal:'🎯',negocio:'💼',aprendizaje:'📚',salud:'💪',finanzas:'💰'};
+  const linked=db.projects.filter(p=>(m.proyectos||[]).includes(p.id));
+  return`<div class="meta-card">
+    <div class="meta-card-head">
+      <div class="meta-icon" style="background:${m.color||'var(--accent-light)'}"><span style="font-size:22px">${emojis[m.categoria]||'🎯'}</span></div>
+      <div style="flex:1">
+        <div class="meta-title">${m.titulo}</div>
+        <span class="meta-period ${periodColors[m.periodo]||'meta-period-trimestral'}">${{trimestral:'Trimestral',anual:'Anual',mensual:'Mensual'}[m.periodo]||m.periodo}</span>
+      </div>
+      <div style="display:flex;gap:3px">
+        <button class="icon-btn" onclick="openMetaModal('${m.id}')"><i class="ti ti-edit"></i></button>
+        <button class="icon-btn red" onclick="deleteMeta('${m.id}')"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+    ${m.desc?`<div class="meta-desc">${m.desc}</div>`:''}
+    <div class="meta-progress-wrap">
+      <div class="meta-progress-bar"><div class="meta-progress-fill" style="width:${pct}%"></div></div>
+      <div class="meta-progress-label">
+        <span>Progreso</span>
+        <span style="font-weight:600;color:var(--accent)">${pct}%</span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+      <input type="range" min="0" max="100" value="${pct}" style="flex:1;accent-color:var(--accent);cursor:pointer" oninput="updateMetaProgress('${m.id}',this.value)">
+    </div>
+    ${linked.length?`<div class="meta-linked">${linked.map(p=>`<span class="meta-linked-tag" onclick="setView('project-detail','${p.id}')">${p.name}</span>`).join('')}</div>`:''}
+  </div>`;
+}
+function openMetaModal(editId){
+  const isEdit=!!editId;
+  const m=isEdit?extras.metas.find(x=>x.id===editId):{titulo:'',desc:'',periodo:'trimestral',categoria:'personal',progreso:0,color:'var(--accent-light)',proyectos:[]};
+  const projOpts=db.projects.map(p=>`<option value="${p.id}" ${(m.proyectos||[]).includes(p.id)?'selected':''}>${p.name}</option>`).join('');
+  document.getElementById('modal-root').innerHTML=`<div class="modal-overlay" onclick="overlayClose(event)"><div class="modal">
+    <div class="modal-title">${isEdit?'Editar meta':'Nueva meta'}</div>
+    <div class="form-group"><label class="form-label">Título *</label><input class="form-input" id="m-titulo" value="${m.titulo||''}"></div>
+    <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="m-desc" style="min-height:60px">${m.desc||''}</textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Período</label>
+        <select class="form-select" id="m-periodo">
+          <option value="mensual" ${m.periodo==='mensual'?'selected':''}>Mensual</option>
+          <option value="trimestral" ${m.periodo==='trimestral'?'selected':''}>Trimestral</option>
+          <option value="anual" ${m.periodo==='anual'?'selected':''}>Anual</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Categoría</label>
+        <select class="form-select" id="m-cat">
+          <option value="personal" ${m.categoria==='personal'?'selected':''}>🎯 Personal</option>
+          <option value="negocio" ${m.categoria==='negocio'?'selected':''}>💼 Negocio</option>
+          <option value="aprendizaje" ${m.categoria==='aprendizaje'?'selected':''}>📚 Aprendizaje</option>
+          <option value="salud" ${m.categoria==='salud'?'selected':''}>💪 Salud</option>
+          <option value="finanzas" ${m.categoria==='finanzas'?'selected':''}>💰 Finanzas</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">Progreso inicial (${m.progreso||0}%)</label><input type="range" class="form-input" id="m-prog" min="0" max="100" value="${m.progreso||0}" style="padding:0;border:none;accent-color:var(--accent)" oninput="this.previousElementSibling.textContent='Progreso inicial ('+this.value+'%)'"></div>
+    <div class="form-group"><label class="form-label">Vincular a proyectos</label><select class="form-select" id="m-projs" multiple style="min-height:80px">${projOpts}</select><div style="font-size:11px;color:var(--text3);margin-top:3px">Mantén Ctrl/Cmd para seleccionar varios</div></div>
+    <div class="modal-actions"><button class="btn-ghost" onclick="closeModal()">Cancelar</button><button class="btn-primary" onclick="saveMeta('${editId||''}')">${isEdit?'Guardar':'Crear meta'}</button></div>
+  </div></div>`;
+  setTimeout(()=>document.getElementById('m-titulo')?.focus(),50);
+}
+function saveMeta(editId){
+  const titulo=document.getElementById('m-titulo').value.trim();
+  if(!titulo)return notif('El título es obligatorio');
+  const selProjs=[...document.getElementById('m-projs').selectedOptions].map(o=>o.value);
+  const data={titulo,desc:document.getElementById('m-desc').value.trim(),periodo:document.getElementById('m-periodo').value,categoria:document.getElementById('m-cat').value,progreso:parseInt(document.getElementById('m-prog').value)||0,proyectos:selProjs};
+  if(editId){const m=extras.metas.find(x=>x.id===editId);Object.assign(m,data);}
+  else{extras.metas.push({id:'meta'+Date.now(),color:'var(--accent-light)',...data});}
+  saveExtras();closeModal();render();notif(editId?'Meta actualizada ✓':'Meta creada ✓');
+}
+function updateMetaProgress(id,val){
+  const m=extras.metas.find(x=>x.id===id);
+  if(m){m.progreso=parseInt(val);saveExtras();}
+}
+function deleteMeta(id){
+  if(!confirm('¿Eliminar esta meta?'))return;
+  extras.metas=extras.metas.filter(x=>x.id!==id);
+  saveExtras();render();notif('Meta eliminada');
+}
+
+// ───── TAREAS POR PROYECTO (en pestaña de fases) ─────
+function renderTareasSection(p){
+  const allTasks=p.phases.flatMap(ph=>(ph.tasks||[]).map(t=>({...t,phaseName:ph.name,phaseId:ph.id})));
+  const pending=allTasks.filter(t=>!t.done);
+  const done=allTasks.filter(t=>t.done);
+  return`<div class="section">
+    <div class="sec-head">
+      <div class="sec-title"><i class="ti ti-checkbox" style="color:var(--green)"></i> Tareas <span class="sec-count">${pending.length} pendientes</span></div>
+    </div>
+    <div class="task-list">
+      ${pending.map(t=>renderTaskItem(p.id,t)).join('')}
+      ${done.length?`<div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:8px 0 4px">Completadas (${done.length})</div>${done.map(t=>renderTaskItem(p.id,t)).join('')}`:''}
+    </div>
+    <div class="task-add-wrap">
+      <select id="task-phase-sel-${p.id}" class="filter-select" style="font-size:12px;padding:7px 10px">
+        ${p.phases.map(ph=>`<option value="${ph.id}">${ph.name}</option>`).join('')}
+      </select>
+      <input class="task-add-input" id="task-input-${p.id}" placeholder="Nueva tarea..." onkeydown="if(event.key==='Enter')addTask('${p.id}')">
+      <button class="btn-primary" style="font-size:12px;padding:7px 14px" onclick="addTask('${p.id}')"><i class="ti ti-plus"></i> Añadir</button>
+    </div>
+  </div>`;
+}
+function renderTaskItem(pid,t){
+  return`<div class="task-item ${t.done?'done':''}">
+    <div class="task-check ${t.done?'checked':''}" onclick="toggleTask('${pid}','${t.phaseId}','${t.id}')"></div>
+    <span class="task-text">${t.text}</span>
+    ${t.phaseName?`<span class="task-phase-tag">${t.phaseName}</span>`:''}
+    <button class="icon-btn red" onclick="deleteTask('${pid}','${t.phaseId}','${t.id}')"><i class="ti ti-x"></i></button>
+  </div>`;
+}
+function addTask(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const input=document.getElementById('task-input-'+pid);
+  const phSel=document.getElementById('task-phase-sel-'+pid);
+  const text=input?.value.trim();
+  if(!text)return notif('Escribe el texto de la tarea');
+  const phId=phSel?.value;
+  const ph=p.phases.find(ph=>ph.id===phId)||p.phases[0];
+  if(!ph)return notif('El proyecto no tiene fases');
+  if(!ph.tasks)ph.tasks=[];
+  ph.tasks.push({id:'t'+Date.now(),text,done:false});
+  save(db);render();
+}
+function toggleTask(pid,phid,tid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  const t=ph?.tasks?.find(t=>t.id===tid);
+  if(t){t.done=!t.done;save(db);render();}
+}
+function deleteTask(pid,phid,tid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const ph=p.phases.find(ph=>ph.id===phid);
+  if(ph?.tasks)ph.tasks=ph.tasks.filter(t=>t.id!==tid);
+  save(db);render();
+}
+
+// ───── FOCUS MODE ─────
+let _focusProject=null;
+function openFocusMode(pid){
+  _focusProject=pid;
+  const p=db.projects.find(pr=>pr.id===pid);
+  const allTasks=p.phases.flatMap(ph=>(ph.tasks||[]).map(t=>({...t,phaseName:ph.name,phaseId:ph.id})));
+  const pending=allTasks.filter(t=>!t.done);
+  const activePhases=p.phases.filter(ph=>ph.status==='active');
+  document.getElementById('modal-root').innerHTML=`
+    <div class="focus-overlay">
+      <div class="focus-topbar">
+        <div>
+          <div class="focus-title">${p.name}</div>
+          <div style="font-size:12px;color:var(--text3)">Modo focus — solo lo que importa ahora</div>
+        </div>
+        <button class="btn-ghost" onclick="closeFocusMode()"><i class="ti ti-x"></i> Salir</button>
+      </div>
+      <div class="focus-content">
+        ${activePhases.length?`
+          <div style="margin-bottom:1.5rem">
+            <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Fases en curso</div>
+            ${activePhases.map(ph=>`<div style="background:var(--blue-light);border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:10px 14px;margin-bottom:6px"><div style="font-size:14px;font-weight:600;color:var(--text)">${ph.name}</div>${ph.desc?`<div style="font-size:12px;color:var(--text2)">${ph.desc}</div>`:''}</div>`).join('')}
+          </div>`:''}
+        <div style="margin-bottom:1.5rem">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Tareas pendientes (${pending.length})</div>
+          <div class="task-list">
+            ${pending.length?pending.map(t=>renderTaskItem(pid,t)).join(''):'<div style="font-size:13px;color:var(--text3);padding:6px 0">Sin tareas pendientes. ¡Todo al día!</div>'}
+          </div>
+          <div class="task-add-wrap" style="margin-top:10px">
+            <input class="task-add-input" id="focus-task-input" placeholder="Nueva tarea..." onkeydown="if(event.key==='Enter')addFocusTask('${pid}')">
+            <button class="btn-primary" style="font-size:12px;padding:7px 14px" onclick="addFocusTask('${pid}')"><i class="ti ti-plus"></i> Añadir</button>
+          </div>
+        </div>
+        ${p.notes?`<div><div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Notas del proyecto</div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;font-size:13px;color:var(--text2);line-height:1.65">${p.notes}</div></div>`:''}
+      </div>
+    </div>`;
+}
+function closeFocusMode(){document.getElementById('modal-root').innerHTML='';_focusProject=null;}
+function addFocusTask(pid){
+  const p=db.projects.find(pr=>pr.id===pid);
+  const input=document.getElementById('focus-task-input');
+  const text=input?.value.trim();
+  if(!text)return notif('Escribe el texto de la tarea');
+  const ph=p.phases.find(ph=>ph.status==='active')||p.phases[0];
+  if(!ph)return notif('El proyecto no tiene fases');
+  if(!ph.tasks)ph.tasks=[];
+  ph.tasks.push({id:'t'+Date.now(),text,done:false});
+  save(db);openFocusMode(pid);
+}
+
+// ───── PLANTILLAS ─────
+function renderPlantillas(){
+  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+    <div><div style="font-size:14px;font-weight:500;margin-bottom:3px">Plantillas de proyecto</div><div style="font-size:13px;color:var(--text2)">Usa una plantilla para crear un proyecto con fases predefinidas</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
+    ${(extras.plantillas||[]).map(pl=>`
+      <div class="plantilla-card">
+        <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px">${pl.nombre}</div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:10px">${pl.desc}</div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px">
+          ${pl.fases.map((f,i)=>`<div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><span style="width:18px;height:18px;border-radius:99px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">${i+1}</span>${f}</div>`).join('')}
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;font-size:12px" onclick="usarPlantilla('${pl.id}')"><i class="ti ti-template"></i> Usar esta plantilla</button>
+      </div>`).join('')}
+  </div>`;
+}
+function usarPlantilla(plId){
+  const pl=(extras.plantillas||[]).find(p=>p.id===plId);
+  if(!pl)return;
+  const name=prompt(`Nombre del proyecto basado en "${pl.nombre}":`);
+  if(!name||!name.trim())return;
+  const project={
+    id:'p'+Date.now(),name:name.trim(),category:'personal',status:'activo',priority:'media',
+    description:'',deadline:'',collaborators:[],tags:[],notes:'',resources:[],ideas:[],tools:[],brief:{},
+    phases:pl.fases.map((f,i)=>({id:'ph'+Date.now()+i,name:f,desc:'',status:'pending',startDate:'',endDate:'',comments:[],tasks:[]}))
+  };
+  db.projects.unshift(project);
+  save(db);
+  setView('project-detail',project.id);
+  notif(`Proyecto "${name}" creado con ${pl.fases.length} fases ✓`);
+}
+
+// ───── INICIO DASHBOARD ─────
+function renderInicio(){
+  const now=new Date();
+  const hour=now.getHours();
+  const greeting=hour<12?'Buenos días':hour<18?'Buenas tardes':'Buenas noches';
+  const activos=db.projects.filter(p=>p.status==='activo');
+  const allTasks=db.projects.flatMap(p=>p.phases.flatMap(ph=>(ph.tasks||[]).map(t=>({...t,projectName:p.name,pid:p.id}))));
+  const pendingTasks=allTasks.filter(t=>!t.done);
+  const todayEntry=extras.diario.find(e=>e.date===now.toISOString().slice(0,10));
+  const recentIdeas=db.projects.flatMap(p=>p.ideas.map(i=>({text:i,pName:p.name,pid:p.id}))).slice(-4).reverse();
+  return`<div class="inicio-grid">
+    <!-- GREETING -->
+    <div class="inicio-card inicio-wide" style="background:linear-gradient(135deg,var(--accent-light),var(--purple-light));border-color:var(--accent)">
+      <div class="hoy-greeting">${greeting} 👋</div>
+      <div class="hoy-date">${now.toLocaleDateString('es-CL',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
+      <div class="hoy-stats">
+        <div class="hoy-stat"><div class="hoy-stat-num" style="color:var(--accent)">${activos.length}</div><div class="hoy-stat-label">Proyectos activos</div></div>
+        <div class="hoy-stat"><div class="hoy-stat-num" style="color:var(--red)">${pendingTasks.length}</div><div class="hoy-stat-label">Tareas pendientes</div></div>
+        <div class="hoy-stat"><div class="hoy-stat-num" style="color:var(--purple)">${extras.metas?.length||0}</div><div class="hoy-stat-label">Metas activas</div></div>
+        <div class="hoy-stat"><div class="hoy-stat-num" style="color:var(--green)">${bib.items.length}</div><div class="hoy-stat-label">Recursos en biblioteca</div></div>
+      </div>
+    </div>
+    <!-- ACCESO RAPIDO -->
+    <div class="inicio-card inicio-wide">
+      <div class="inicio-card-title"><span><i class="ti ti-bolt"></i> Acceso rápido</span></div>
+      <div class="acceso-rapido">
+        <button class="ar-btn" onclick="setView('dashboard')"><i class="ti ti-layout-grid"></i><span>Proyectos</span></button>
+        <button class="ar-btn" onclick="setView('biblioteca')"><i class="ti ti-books"></i><span>Biblioteca</span></button>
+        <button class="ar-btn" onclick="setView('metas')"><i class="ti ti-target"></i><span>Metas</span></button>
+        <button class="ar-btn" onclick="${todayEntry?`_diarioActive='${todayEntry.id}';setView('diario')`:"newDiarioEntry();setView('diario')"}"><i class="ti ti-notebook"></i><span>${todayEntry?'Ver diario':'Escribir hoy'}</span></button>
+        <button class="ar-btn" onclick="setView('plantillas')"><i class="ti ti-template"></i><span>Plantillas</span></button>
+        <button class="ar-btn" onclick="openModal('new-project')"><i class="ti ti-plus"></i><span>Nuevo proyecto</span></button>
+        <button class="ar-btn" onclick="openBibModal()"><i class="ti ti-library-plus"></i><span>Añadir recurso</span></button>
+        <button class="ar-btn" onclick="setView('tools-global')"><i class="ti ti-tool"></i><span>Herramientas</span></button>
+      </div>
+    </div>
+    <!-- PROYECTOS ACTIVOS -->
+    <div class="inicio-card">
+      <div class="inicio-card-title"><span><i class="ti ti-player-play" style="color:var(--green)"></i> Proyectos activos</span><button class="btn-ghost" style="font-size:11px;padding:3px 8px" onclick="setView('dashboard')">Ver todos</button></div>
+      ${activos.length?activos.slice(0,5).map(p=>{
+        const done=p.phases.filter(ph=>ph.status==='completed').length;
+        const total=p.phases.length;
+        const pct=total?Math.round(done/total*100):0;
+        const colors=['#6C63FF','#9B5CF6','#3B82F6','#10B981','#F59E0B'];
+        const color=colors[db.projects.indexOf(p)%colors.length];
+        return`<div class="quick-project" onclick="setView('project-detail','${p.id}')">
+          <div class="quick-project-bar" style="background:${color}"></div>
+          <div style="flex:1"><div class="quick-project-name">${p.name}</div><div style="font-size:11px;color:var(--text3)">${p.phases.filter(ph=>ph.status==='active').map(ph=>ph.name).join(', ')||'Sin fase activa'}</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <div class="mini-progress"><div class="mini-progress-fill" style="width:${pct}%"></div></div>
+            <span class="quick-project-pct">${pct}%</span>
+          </div>
+        </div>`;
+      }).join(''):'<div style="font-size:13px;color:var(--text3)">No hay proyectos activos.</div>'}
+    </div>
+    <!-- TAREAS PENDIENTES -->
+    <div class="inicio-card">
+      <div class="inicio-card-title"><span><i class="ti ti-checkbox" style="color:var(--red)"></i> Tareas pendientes</span></div>
+      <div class="task-list">
+        ${pendingTasks.slice(0,6).map(t=>`
+          <div class="task-item">
+            <div class="task-check" onclick="toggleTask('${t.pid}','${t.phaseId}','${t.id}')"></div>
+            <span class="task-text" style="font-size:12px">${t.text}</span>
+            <span class="task-phase-tag">${t.projectName}</span>
+          </div>`).join('')||'<div style="font-size:13px;color:var(--text3)">Sin tareas pendientes 🎉</div>'}
+      </div>
+    </div>
+    <!-- IDEAS RECIENTES -->
+    <div class="inicio-card">
+      <div class="inicio-card-title"><span><i class="ti ti-bulb" style="color:var(--purple)"></i> Ideas recientes</span></div>
+      ${recentIdeas.length?recentIdeas.map(i=>`<div class="idea-recent" onclick="setView('project-detail','${i.pid}')" style="cursor:pointer"><span style="font-weight:600;font-size:11px;color:var(--accent)">${i.pName} — </span>${i.text}</div>`).join(''):'<div style="font-size:13px;color:var(--text3)">Sin ideas todavía.</div>'}
+    </div>
+    <!-- METAS -->
+    <div class="inicio-card">
+      <div class="inicio-card-title"><span><i class="ti ti-target" style="color:var(--accent)"></i> Metas</span><button class="btn-ghost" style="font-size:11px;padding:3px 8px" onclick="setView('metas')">Ver todas</button></div>
+      ${(extras.metas||[]).slice(0,3).map(m=>{
+        const pct=Math.min(100,m.progreso||0);
+        return`<div style="margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;margin-bottom:4px"><span>${m.titulo}</span><span style="color:var(--accent);font-weight:600">${pct}%</span></div>
+          <div class="meta-progress-bar"><div class="meta-progress-fill" style="width:${pct}%"></div></div>
+        </div>`;
+      }).join('')||'<div style="font-size:13px;color:var(--text3)">Sin metas definidas.<br><button class="btn-ghost" style="margin-top:6px;font-size:12px" onclick="setView(\'metas\')">Añadir meta</button></div>'}
+    </div>
+    <!-- DIARIO -->
+    <div class="inicio-card">
+      <div class="inicio-card-title"><span><i class="ti ti-notebook" style="color:var(--amber)"></i> Diario</span><button class="btn-ghost" style="font-size:11px;padding:3px 8px" onclick="setView('diario')">Ver todo</button></div>
+      ${todayEntry?`<div style="font-size:13px;font-weight:500;margin-bottom:6px;color:var(--green)">✓ Ya escribiste hoy</div><div style="font-size:12px;color:var(--text2);line-height:1.55;background:var(--surface2);border-radius:8px;padding:8px 10px">${(todayEntry.content||'').slice(0,120)||'(sin contenido aún)'}${(todayEntry.content||'').length>120?'…':''}</div>`:
+      `<div style="font-size:13px;color:var(--text3);margin-bottom:10px">Todavía no escribiste hoy.</div><button class="btn-ghost" style="font-size:12px" onclick="newDiarioEntry();setView('diario')"><i class="ti ti-pencil"></i> Escribir entrada de hoy</button>`}
+    </div>
+  </div>`;
+}
+
+// ───── BIBLIOTECA (SQLite-backed) ─────
+function loadBib(){
+  const items=_query('SELECT data FROM bib_items').map(r=>JSON.parse(r.data));
+  const collections=_query('SELECT name FROM bib_collections ORDER BY position').map(r=>r.name);
+  return{items,collections};
+}
+function saveBib(){
+  if(!_sqldb)return;
+  _sqldb.run('BEGIN');
+  try{
+    _sqldb.run('DELETE FROM bib_items');(bib.items||[]).forEach(_insertBibItem);
+    _sqldb.run('DELETE FROM bib_collections');
+    (bib.collections||[]).forEach((c,i)=>
+      _sqldb.run('INSERT OR REPLACE INTO bib_collections VALUES (?,?)',[c,i]));
+    _sqldb.run('COMMIT');
+  }catch(e){_sqldb.run('ROLLBACK');throw e;}
+  schedulePersist();
+}
+function defaultBibItems(){
+  return[
+    {id:'b1',type:'prompt',title:'Brief de proyecto completo',desc:'Genera un brief detallado para cualquier proyecto.',prompt:'Eres un consultor de proyectos senior. Crea un brief completo para el siguiente proyecto:\n\n[DESCRIPCIÓN DEL PROYECTO]\n\nIncluye: objetivo, público objetivo, métricas de éxito, alcance, restricciones, riesgos y próximos pasos.',model:'Claude',tags:['brief','proyectos'],collection:'Stack IA',fav:true},
+    {id:'b2',type:'prompt',title:'Revisar y mejorar texto',desc:'Mejora cualquier texto manteniendo el tono original.',prompt:'Revisa y mejora el siguiente texto. Mantén el tono y la voz original, pero hazlo más claro, conciso y persuasivo. No cambies el significado.\n\n[TEXTO A MEJORAR]',model:'Claude',tags:['escritura','copywriting'],collection:'',fav:false},
+    {id:'b3',type:'herramienta',title:'Figma',desc:'Herramienta de diseño de interfaces y prototipado colaborativo.',link:'https://figma.com',price:'freemium',tags:['diseño','UI'],collection:'Diseño',fav:true},
+    {id:'b4',type:'herramienta',title:'Notion',desc:'All-in-one para notas, bases de datos y gestión de proyectos.',link:'https://notion.so',price:'freemium',tags:['productividad','notas'],collection:'Productividad',fav:false},
+    {id:'b5',type:'pagina',title:'Mobbin',desc:'Biblioteca de capturas de UI de las mejores apps del mundo.',link:'https://mobbin.com',tags:['diseño','inspiración','UI'],collection:'Diseño',fav:true},
+    {id:'b6',type:'snippet',title:'Gradiente CSS moderno',desc:'Gradiente suave para fondos o botones.',prompt:'background: linear-gradient(135deg, #6C63FF 0%, #9B5CF6 100%);\nborder-radius: 12px;\nbox-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);',tags:['CSS','diseño'],collection:'Diseño',fav:false},
+        {id:'b8',type:'prompt',title:'Naming de marca',desc:'Genera nombres creativos para marcas o productos.',prompt:'Actúa como un experto en branding. Genera 10 nombres creativos para:\n\nTipo de negocio: [TIPO]\nValores clave: [VALORES]\nPúblico objetivo: [PÚBLICO]\n\nPara cada nombre: escribe el nombre, explica su significado y por qué funciona.',model:'Claude',tags:['branding','naming'],collection:'Stack IA',fav:false},
+  ];
+}
+let bib={items:[],collections:[]};
+let _bibCat='all';
+let _bibSearch='';
+let _bibFavOnly=false;
+let _bibCollection='';
+let _bibTag='';
+let _bibDetail=null;
+let _bibSort='recientes';
+
+const catConfig={
+  all:{label:'Todos',icon:'ti-layout-grid',color:'var(--accent)'},
+  prompt:{label:'Prompts',icon:'ti-prompt',color:'var(--purple)'},
+  herramienta:{label:'Herramientas',icon:'ti-tool',color:'var(--blue)'},
+  pagina:{label:'Páginas',icon:'ti-world',color:'var(--green)'},
+  snippet:{label:'Snippets',icon:'ti-code',color:'var(--amber)'},
+  recurso:{label:'Recursos',icon:'ti-file-stack',color:'var(--teal)'},
+
+};
+
+function renderBiblioteca(){
+  let items=bib.items.filter(it=>{
+    const mc=_bibCat==='all'||it.type===_bibCat;
+    const ms=!_bibSearch||it.title.toLowerCase().includes(_bibSearch.toLowerCase())||(it.desc||'').toLowerCase().includes(_bibSearch.toLowerCase())||(it.prompt||'').toLowerCase().includes(_bibSearch.toLowerCase());
+    const mf=!_bibFavOnly||it.fav;
+    const mcol=!_bibCollection||it.collection===_bibCollection;
+    const mt=!_bibTag||(it.tags||[]).includes(_bibTag);
+    return mc&&ms&&mf&&mcol&&mt;
+  });
+  if(_bibSort==='mas-usados')items=[...items].sort((a,b)=>(b.uses||0)-(a.uses||0));
+  else if(_bibSort==='rating')items=[...items].sort((a,b)=>(b.rating||0)-(a.rating||0));
+  else if(_bibSort==='favoritos')items=[...items].sort((a,b)=>(b.fav?1:0)-(a.fav?1:0));
+
+  const counts={};
+  Object.keys(catConfig).forEach(k=>counts[k]=k==='all'?bib.items.length:bib.items.filter(i=>i.type===k).length);
+  const allTags=[...new Set(bib.items.flatMap(i=>i.tags||[]))];
+  const recentItems=[...bib.items].slice(-4).reverse();
+
+  return`<div class="bib-layout">
+    <!-- SIDEBAR -->
+    <div class="bib-sidebar">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Categorías</div>
+      ${Object.entries(catConfig).map(([k,v])=>`
+        <button class="bib-cat-item ${_bibCat===k?'active':''}" onclick="_bibCat='${k}';_bibCollection='';render()">
+          <i class="ti ${v.icon}" style="color:${v.color};font-size:16px"></i> ${v.label}
+          <span class="bib-cat-count">${counts[k]||0}</span>
+        </button>`).join('')}
+      <div class="bib-sep"></div>
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Colecciones</div>
+      <button class="bib-cat-item ${!_bibCollection?'active':''}" onclick="_bibCollection='';render()">
+        <i class="ti ti-stack" style="font-size:15px"></i> Todas
+      </button>
+      ${bib.collections.map(c=>`
+        <button class="bib-cat-item ${_bibCollection===c?'active':''}" onclick="_bibCollection='${c}';render()">
+          <i class="ti ti-folder" style="font-size:15px"></i> ${c}
+        </button>`).join('')}
+      <button onclick="addCollection()" style="background:none;border:1px dashed var(--border2);border-radius:var(--radius);width:100%;padding:6px 10px;font-size:12px;color:var(--text3);cursor:pointer;font-family:'Outfit',sans-serif;margin-top:4px;transition:all .15s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text3)'">+ Nueva colección</button>
+      <div class="bib-sep"></div>
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Exportar</div>
+      <button class="bib-cat-item" onclick="exportBib()" style="color:var(--green)"><i class="ti ti-database-export" style="font-size:15px;color:var(--green)"></i> Exportar biblioteca</button>
+      <button class="bib-cat-item" onclick="document.getElementById('bib-import').click()" style="color:var(--blue)"><i class="ti ti-database-import" style="font-size:15px;color:var(--blue)"></i> Importar biblioteca</button>
+      <input type="file" id="bib-import" accept=".json" style="display:none" onchange="importBib(this)">
+    </div>
+
+    <!-- MAIN -->
+    <div class="bib-main">
+      <!-- TOPBAR -->
+      <div class="bib-topbar">
+        <div class="bib-search-wrap">
+          <i class="ti ti-search bib-search-icon"></i>
+          <input class="bib-search" placeholder="Buscar en la biblioteca..." oninput="_bibSearch=this.value;render()" value="${_bibSearch}">
+        </div>
+        <select style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;cursor:pointer" onchange="_bibSort=this.value;render()">
+          <option value="recientes" ${_bibSort==='recientes'?'selected':''}>Más recientes</option>
+          <option value="mas-usados" ${_bibSort==='mas-usados'?'selected':''}>Más usados</option>
+          <option value="rating" ${_bibSort==='rating'?'selected':''}>Mejor rating</option>
+          <option value="favoritos" ${_bibSort==='favoritos'?'selected':''}>Favoritos primero</option>
+        </select>
+        <button class="btn-ghost ${_bibFavOnly?'active':''}" style="font-size:13px;padding:7px 12px;${_bibFavOnly?'background:var(--amber-light);border-color:var(--amber);color:var(--amber-dark)':''}" onclick="_bibFavOnly=!_bibFavOnly;render()">
+          <i class="ti ti-star${_bibFavOnly?'-filled':''}"></i> Favoritos
+        </button>
+        <button class="btn-primary" onclick="openBibModal()"><i class="ti ti-plus"></i> Añadir</button>
+      </div>
+
+      <!-- TAGS -->
+      ${allTags.length?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center">
+        <span style="font-size:11px;color:var(--text3);font-weight:500">Tags:</span>
+        ${allTags.map(t=>`<button class="bib-filter-chip ${_bibTag===t?'active':''}" onclick="_bibTag=_bibTag==='${t}'?'':'${t}';render()">${t}</button>`).join('')}
+      </div>`:''}
+
+      <!-- RECIENTES (solo en all sin filtros) -->
+      ${_bibCat==='all'&&!_bibSearch&&!_bibFavOnly&&!_bibCollection&&!_bibTag?`
+        <div style="margin-bottom:1.75rem">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Añadidos recientemente</div>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+            ${recentItems.map(it=>renderBibMiniCard(it)).join('')}
+          </div>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Todos los recursos (${items.length})</div>`:''}
+
+      <!-- GRID -->
+      <div class="bib-grid">
+        ${items.length?items.map(it=>renderBibCard(it)).join(''):`<div class="empty" style="grid-column:1/-1"><i class="ti ti-books"></i><p>No hay recursos que coincidan.</p></div>`}
+      </div>
+    </div>
+  </div>
+  ${_bibDetail?renderBibDetail():''}`;
+}
+
+function renderBibMiniCard(it){
+  const cfg=catConfig[it.type]||catConfig.all;
+  return`<div onclick="openBibDetail('${it.id}')" style="flex-shrink:0;width:160px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;cursor:pointer;transition:all .18s;box-shadow:var(--shadow-sm)" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">
+      <i class="ti ${cfg.icon}" style="color:${cfg.color};font-size:14px"></i>
+      <span style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em">${cfg.label}</span>
+    </div>
+    <div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3">${it.title}</div>
+  </div>`;
+}
+
+function renderBibCard(it){
+  const cfg=catConfig[it.type]||catConfig.all;
+  const stars='★'.repeat(it.rating||0)+'☆'.repeat(5-(it.rating||0));
+  const isPromptOrSnippet=it.type==='prompt'||it.type==='snippet';
+  const hasLinks=it.links&&it.links.length?it.links:(it.link?[{url:it.link,label:''}]:[]);
+  const hasLink=hasLinks.length>0&&hasLinks[0].url;
+  const firstLink=hasLinks[0]||{url:'',label:''};
+  const allLinksCard=hasLinks;
+  const priceColors={free:'bib-price-free',freemium:'bib-price-freemium',paid:'bib-price-paid'};
+  const priceLabels={free:'Gratuito',freemium:'Freemium',paid:'De pago'};
+  return`<div class="bib-card" onclick="openBibDetail('${it.id}')">
+    <div class="bib-card-top">
+      <div class="bib-card-icon" style="background:${cfg.color}22"><i class="ti ${cfg.icon}" style="color:${cfg.color}"></i></div>
+      <div style="flex:1">
+        <div class="bib-card-title">${it.title}</div>
+        ${it.model?`<span class="bib-model-badge" style="font-size:10px;margin-top:3px;display:inline-flex"><i class="ti ti-robot" style="font-size:11px"></i> ${it.model}</span>`:''}
+      </div>
+      <div class="bib-card-actions" onclick="event.stopPropagation()">
+        <button class="bib-fav-btn" onclick="toggleBibFav('${it.id}')" title="${it.fav?'Quitar favorito':'Añadir favorito'}">${it.fav?'⭐':'☆'}</button>
+        <button class="icon-btn" onclick="openBibModal('${it.id}')" title="Editar"><i class="ti ti-edit"></i></button>
+        <button class="icon-btn red" onclick="deleteBibItem('${it.id}')" title="Eliminar"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+    ${it.desc?`<div class="bib-card-desc">${it.desc}</div>`:''}
+    ${isPromptOrSnippet&&it.prompt?`<div class="bib-card-prompt">${highlightVars(it.prompt.slice(0,120))}${it.prompt.length>120?'…':''}</div>`:''}
+    <div class="bib-card-meta">
+      <span class="bib-badge bib-badge-${it.type}">${cfg.label}</span>
+      ${it.price?`<span class="bib-price ${priceColors[it.price]||''}">${priceLabels[it.price]||it.price}</span>`:''}
+      ${(it.tags||[]).slice(0,2).map(t=>`<span class="bib-tag">${t}</span>`).join('')}
+      ${it.collection?`<span class="bib-tag" style="color:var(--accent);border-color:var(--accent-light)"><i class="ti ti-folder" style="font-size:10px"></i> ${it.collection}</span>`:''}
+    </div>
+    <div class="bib-card-footer">
+      <div style="display:flex;align-items:center;gap:8px">
+      </div>
+      ${isPromptOrSnippet?`<button class="bib-copy-btn" id="bcb-${it.id}" onclick="event.stopPropagation();copyBibItem('${it.id}')"><i class="ti ti-copy"></i> Copiar</button>`:''}
+      ${hasLink?`<a href="${firstLink.url}" target="_blank" onclick="event.stopPropagation()" class="bib-copy-btn" style="position:relative"><i class="ti ti-external-link"></i> ${firstLink.label||'Abrir'}${(it.links&&it.links.length>1)?`<span style="position:absolute;top:-5px;right:-5px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;width:15px;height:15px;border-radius:99px;display:flex;align-items:center;justify-content:center">${it.links.length}</span>`:''}</a>`:''}
+    </div>
+  </div>`;
+}
+
+function renderBibDetail(){
+  const it=bib.items.find(i=>i.id===_bibDetail);
+  if(!it)return'';
+  const cfg=catConfig[it.type]||catConfig.all;
+  const isPromptOrSnippet=it.type==='prompt'||it.type==='snippet';
+  const hasLink=(it.links&&it.links.length)||it.link;
+  const allLinks=it.links&&it.links.length?it.links:(it.link?[{url:it.link,label:''}]:[]);
+  return`<div class="bib-detail-overlay" onclick="closeBibDetail()">
+    <div class="bib-detail-panel" onclick="event.stopPropagation()">
+      <div class="bib-detail-head">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="bib-card-icon" style="background:${cfg.color}22;width:40px;height:40px;border-radius:12px"><i class="ti ${cfg.icon}" style="color:${cfg.color};font-size:20px"></i></div>
+            <div>
+              <div style="font-size:17px;font-weight:600;color:var(--text)">${it.title}</div>
+              <div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap">
+                <span class="bib-badge bib-badge-${it.type}">${cfg.label}</span>
+                ${it.model?`<span class="bib-model-badge"><i class="ti ti-robot" style="font-size:11px"></i> ${it.model}</span>`:''}
+                ${it.collection?`<span class="bib-tag" style="color:var(--accent)"><i class="ti ti-folder" style="font-size:10px"></i> ${it.collection}</span>`:''}
+              </div>
+            </div>
+          </div>
+          <button onclick="closeBibDetail()" class="icon-btn"><i class="ti ti-x"></i></button>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="bib-fav-btn" onclick="toggleBibFav('${it.id}')">${it.fav?'⭐':'☆'}</button>
+        </div>
+      </div>
+      <div class="bib-detail-body">
+        ${it.desc?`<div style="font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:1.25rem">${it.desc}</div>`:''}
+        ${isPromptOrSnippet&&it.prompt?`
+          <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Contenido</div>
+          <div class="bib-prompt-full">${highlightVars(it.prompt)}</div>`:''}
+        ${hasLink?`
+          <div style="margin-bottom:1rem">
+            <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Links</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              ${allLinks.map(l=>`<a href="${l.url}" target="_blank" style="font-size:13px;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:var(--accent-light);border-radius:var(--radius);transition:all .15s;width:fit-content" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='var(--accent-light)';this.style.color='var(--accent)'"><i class="ti ti-external-link"></i> ${l.label||l.url}</a>`).join('')}
+            </div>
+          </div>`:''}
+        ${(it.tags||[]).length?`
+          <div style="margin-top:1rem">
+            <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Tags</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">${(it.tags||[]).map(t=>`<span class="bib-tag" style="font-size:12px;padding:3px 10px">${t}</span>`).join('')}</div>
+          </div>`:''}
+        ${it.price?`<div style="margin-top:1rem"><div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Precio</div><span class="bib-price ${it.price==='free'?'bib-price-free':it.type==='freemium'?'bib-price-freemium':'bib-price-paid'}" style="font-size:13px;padding:4px 12px">${{free:'Gratuito',freemium:'Freemium',paid:'De pago'}[it.price]||it.price}</span></div>`:''}
+      </div>
+      <div class="bib-detail-footer">
+        ${isPromptOrSnippet?`<button class="btn-primary" onclick="copyBibItem('${it.id}')"><i class="ti ti-copy"></i> Copiar</button>`:''}
+        ${hasLink?`<a href="${allLinks[0]?.url}" target="_blank" class="btn-primary" style="text-decoration:none"><i class="ti ti-external-link"></i> ${allLinks[0]?.label||'Abrir'}</a>`:''}
+        <button class="btn-ghost" onclick="openBibModal('${it.id}')"><i class="ti ti-edit"></i> Editar</button>
+        <button class="btn-ghost" style="margin-left:auto;color:var(--red);border-color:var(--red)" onclick="deleteBibItem('${it.id}')"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function highlightVars(text){
+  return text.replace(/\[([^\]]+)\]/g,'<span class="bib-var">[$1]</span>');
+}
+
+function addBibLinkRow(){
+  const list=document.getElementById('bib-links-list');
+  if(!list)return;
+  const i=list.children.length;
+  const row=document.createElement('div');
+  row.style.cssText='display:flex;gap:6px;align-items:center';
+  row.id='bib-link-row-'+i;
+  row.innerHTML=`
+    <input placeholder="Nombre (ej. Demo)" style="flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);padding:7px 10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none" class="bib-link-label" value="">
+    <input placeholder="https://..." style="flex:2;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);padding:7px 10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none" class="bib-link-url" value="">
+    <button onclick="removeBibLinkRow(this)" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;padding:4px;border-radius:6px;flex-shrink:0" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'"><i class="ti ti-x"></i></button>`;
+  list.appendChild(row);
+  row.querySelector('.bib-link-label').focus();
+}
+function removeBibLinkRow(btn){
+  const row=btn.closest('[id^="bib-link-row-"]');
+  const list=document.getElementById('bib-links-list');
+  if(list&&list.children.length>1)row?.remove();
+  else if(row){
+    row.querySelectorAll('input').forEach(i=>i.value='');
+  }
+}
+function collectBibLinks(){
+  const rows=document.querySelectorAll('#bib-links-list [id^="bib-link-row-"]');
+  const links=[];
+  rows.forEach(row=>{
+    const label=row.querySelector('.bib-link-label')?.value.trim()||'';
+    const url=row.querySelector('.bib-link-url')?.value.trim()||'';
+    if(url)links.push({label,url});
+  });
+  return links;
+}
+function addBibLinkRow_placeholder(){}// end helpers
+function openBibDetail(id){_bibDetail=id;render();}
+function closeBibDetail(){_bibDetail=null;render();}
+
+function toggleBibFav(id){
+  const it=bib.items.find(i=>i.id===id);
+  if(it){it.fav=!it.fav;saveBib();render();}
+}
+
+function copyBibItem(id){
+  const it=bib.items.find(i=>i.id===id);
+  if(!it||!it.prompt)return;
+  navigator.clipboard.writeText(it.prompt).then(()=>{
+        const btn=document.getElementById('bcb-'+id);
+    if(btn){btn.classList.add('copied');btn.innerHTML='<i class="ti ti-check"></i> Copiado';setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<i class="ti ti-copy"></i> Copiar';},2000);}
+    notif('Copiado al portapapeles ✓');
+  }).catch(()=>notif('Error al copiar'));
+}
+
+function deleteBibItem(id){
+  if(!confirm('¿Eliminar este recurso?'))return;
+  bib.items=bib.items.filter(i=>i.id!==id);
+  if(_bibDetail===id)_bibDetail=null;
+  saveBib();render();notif('Eliminado');
+}
+
+function addCollection(){
+  const name=prompt('Nombre de la nueva colección:');
+  if(!name||!name.trim())return;
+  bib.collections.push(name.trim());
+  saveBib();render();notif('Colección creada ✓');
+}
+
+function exportBib(){
+  const blob=new Blob([JSON.stringify(bib,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`biblioteca-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();notif('Biblioteca exportada ✓');
+}
+
+function importBib(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const parsed=JSON.parse(e.target.result);
+      if(!parsed.items||!Array.isArray(parsed.items))throw new Error();
+      if(!confirm(`¿Importar biblioteca? Se reemplazarán tus ${bib.items.length} recursos actuales con ${parsed.items.length} del archivo.`)){input.value='';return;}
+      bib=parsed;saveBib();render();notif(`Biblioteca importada — ${parsed.items.length} recursos ✓`);
+    }catch{notif('Error: archivo inválido');}
+    input.value='';
+  };
+  reader.readAsText(file);
+}
+
+function openBibModal(editId){
+  const isEdit=!!editId;
+  const it=isEdit?bib.items.find(i=>i.id===editId):{type:'prompt',title:'',desc:'',prompt:'',model:'',link:'',price:'',tags:[],collection:'',fav:false};
+  const colOpts=bib.collections.map(c=>`<option value="${c}" ${it.collection===c?'selected':''}>${c}</option>`).join('');
+  document.getElementById('modal-root').innerHTML=`<div class="modal-overlay" onclick="overlayClose(event)"><div class="modal" style="width:600px">
+    <div class="modal-title">${isEdit?'Editar recurso':'Nuevo recurso'}</div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Tipo *</label>
+        <select class="form-select" id="bib-type" onchange="updateBibForm()" >
+          <option value="prompt" ${it.type==='prompt'?'selected':''}>Prompt</option>
+          <option value="herramienta" ${it.type==='herramienta'?'selected':''}>Herramienta</option>
+          <option value="pagina" ${it.type==='pagina'?'selected':''}>Página / Link</option>
+          <option value="snippet" ${it.type==='snippet'?'selected':''}>Snippet</option>
+          <option value="recurso" ${it.type==='recurso'?'selected':''}>Recurso</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Título *</label><input class="form-input" id="bib-title" value="${it.title}"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="bib-desc" style="min-height:60px">${it.desc||''}</textarea></div>
+    <div id="bib-prompt-group" class="form-group" style="${it.type==='prompt'||it.type==='snippet'?'':'display:none'}">
+      <label class="form-label">Contenido ${it.type==='prompt'?'del prompt':'del snippet'} — usa [VARIABLES] para marcar lo que hay que personalizar</label>
+      <textarea class="form-textarea" id="bib-prompt" style="min-height:120px;font-family:monospace;font-size:13px">${it.prompt||''}</textarea>
+    </div>
+    <div id="bib-link-group" class="form-group" style="">
+      <label class="form-label">Links</label>
+      <div id="bib-links-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:8px">
+        ${(it.links&&it.links.length?it.links:[{label:'',url:it.link||''}]).map((l,i)=>`
+          <div style="display:flex;gap:6px;align-items:center" id="bib-link-row-${i}">
+            <input placeholder="Nombre (ej. Documentación)" style="flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);padding:7px 10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none" class="bib-link-label" value="${l.label||''}">
+            <input placeholder="https://..." style="flex:2;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);padding:7px 10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none" class="bib-link-url" value="${l.url||''}">
+            <button onclick="removeBibLinkRow(this)" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;padding:4px;border-radius:6px;flex-shrink:0" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'"><i class="ti ti-x"></i></button>
+          </div>`).join('')}
+      </div>
+      <button onclick="addBibLinkRow()" style="background:none;border:1px dashed var(--border2);border-radius:var(--radius);width:100%;padding:7px;font-size:12px;color:var(--text3);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text3)'"><i class="ti ti-plus"></i> Añadir otro link</button>
+    </div>
+    <div class="form-row">
+      <div id="bib-model-group" class="form-group" style="${it.type==='prompt'?'':'display:none'}">
+        <label class="form-label">Modelo recomendado</label>
+        <select class="form-select" id="bib-model">
+          <option value="" ${!it.model?'selected':''}>Sin preferencia</option>
+          <option value="Claude" ${it.model==='Claude'?'selected':''}>Claude</option>
+          <option value="GPT-4" ${it.model==='GPT-4'?'selected':''}>GPT-4</option>
+          <option value="Gemini" ${it.model==='Gemini'?'selected':''}>Gemini</option>
+          <option value="Perplexity" ${it.model==='Perplexity'?'selected':''}>Perplexity</option>
+        </select>
+      </div>
+      <div id="bib-price-group" class="form-group" style="${it.type==='herramienta'?'':'display:none'}">
+        <label class="form-label">Precio</label>
+        <select class="form-select" id="bib-price">
+          <option value="" ${!it.price?'selected':''}>—</option>
+          <option value="free" ${it.price==='free'?'selected':''}>Gratuito</option>
+          <option value="freemium" ${it.price==='freemium'?'selected':''}>Freemium</option>
+          <option value="paid" ${it.price==='paid'?'selected':''}>De pago</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Colección</label>
+        <select class="form-select" id="bib-collection"><option value="">Sin colección</option>${colOpts}</select>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">Tags (separados por coma)</label><input class="form-input" id="bib-tags" value="${(it.tags||[]).join(', ')}"></div>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn-primary" onclick="saveBibItem('${editId||''}')">  ${isEdit?'Guardar cambios':'Añadir recurso'}</button>
+    </div>
+  </div></div>`;
+  setTimeout(()=>document.getElementById('bib-title')?.focus(),50);
+}
+
+function updateBibForm(){
+  const type=document.getElementById('bib-type')?.value;
+  const isPS=type==='prompt'||type==='snippet';
+  const isLink=true;
+  document.getElementById('bib-prompt-group').style.display=isPS?'':'none';
+  document.getElementById('bib-link-group').style.display=isLink?'':'none';
+  document.getElementById('bib-model-group').style.display=type==='prompt'?'':'none';
+  document.getElementById('bib-price-group').style.display=type==='herramienta'?'':'none';
+}
+
+function saveBibItem(editId){
+  const title=document.getElementById('bib-title')?.value.trim();
+  if(!title)return notif('El título es obligatorio');
+  const tags=document.getElementById('bib-tags')?.value;
+  const data={
+    type:document.getElementById('bib-type').value,
+    title,
+    desc:document.getElementById('bib-desc').value.trim(),
+    prompt:document.getElementById('bib-prompt')?.value.trim()||'',
+    link:document.getElementById('bib-link')?.value.trim()||'',
+    links:collectBibLinks(),
+    model:document.getElementById('bib-model')?.value||'',
+    price:document.getElementById('bib-price')?.value||'',
+    collection:document.getElementById('bib-collection').value,
+    tags:tags?tags.split(',').map(t=>t.trim()).filter(Boolean):[],
+  };
+  if(editId){
+    const it=bib.items.find(i=>i.id===editId);
+    Object.assign(it,data);
+  } else {
+    bib.items.push({id:'b'+Date.now(),fav:false,...data});
+  }
+  saveBib();closeModal();render();notif(editId?'Recurso actualizado ✓':'Recurso añadido ✓');
+}
+
+initTheme();
+(async()=>{
+  const mc=document.getElementById('main-content');
+  if(mc)mc.innerHTML='<div style="padding:3rem;text-align:center;color:var(--text3)"><i class="ti ti-loader-2" style="font-size:32px;display:inline-block"></i><div style="margin-top:12px;font-size:13px">Cargando base de datos…</div></div>';
+  try{
+    await initStorage();
+    db=load();extras=loadExtras();bib=loadBib();
+    layoutView=db.settings?.layoutView||'grid';
+    updateConnectionUI();
+    updateSidebar();
+    render();
+  }catch(e){
+    console.error(e);
+    if(mc)mc.innerHTML='<div style="padding:3rem;text-align:center;color:var(--red)"><b>Error al cargar la base de datos:</b><br>'+(e.message||e)+'<br><br><small>Recarga la página o revisa la consola.</small></div>';
+  }
+})();
+</script>
+</body>
+</html>
